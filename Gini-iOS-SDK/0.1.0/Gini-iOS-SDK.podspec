@@ -1,0 +1,16 @@
+Pod::Spec.new do |s|
+  s.name     = 'Gini-iOS-SDK'
+  s.version  = '0.1.0'
+  s.license  = 'MIT'
+  s.summary  = 'An SDK for integrating the magical Gini technology into other apps.'
+  s.homepage = 'https://github.com/gini/gini-sdk-ios'
+  s.social_media_url = 'https://twitter.com/gini'
+  s.authors  = { 'Gini GmbH' => 'info@gini.net' }
+  s.source   = { :git => 'git@github.com:gini/gini-sdk-ios.git', :tag => 'd7d853cd6ea922133b1f39d9308915fff57dce17' }
+  s.documentation_url = 'http://developer.gini.net/gini-sdk-ios/'
+  s.requires_arc = true
+  s.platform     = :ios, "7.0"
+  s.public_header_files = 'Gini-iOS-SDK/**/*.h'
+  s.source_files = 'Gini-iOS-SDK'
+  s.dependency "Bolts", "1.1.0"
+end
