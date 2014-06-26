@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/gini/gini-sdk-ios'
   s.social_media_url = 'https://twitter.com/gini'
   s.authors  = { 'Gini GmbH' => 'info@gini.net' }
-  s.source   = { :git => 'git@github.com:gini/gini-sdk-ios.git', :tag => '7e63b9b6e3d84bad8fe381ecd37c10c9e3b28b59' }
+  s.source   = { :git => 'git@github.com:gini/gini-sdk-ios.git', :tag => '0.1.0' }
   s.documentation_url = 'http://developer.gini.net/gini-sdk-ios/'
   s.requires_arc = true
   s.platform     = :ios, "7.0"
