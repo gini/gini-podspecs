@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.authors = { 'Gini GmbH' => 'info@gini.net' }
   s.homepage = 'http://www.gini.net'
   s.source = { :http => "https://#{ENV['GINI_USER']}:#{ENV['GINI_PASSWORD']}@www.gini.net/partner/downloads/GiniVisionFramework-#{s.version}.zip"}
+  s.resource_bundle = { 'GiniVision' => 'GiniVision.bundle/*' }
   s.requires_arc = true
   s.platform = :ios, "7.0"
   s.vendored_frameworks = "GiniVisionFramework-#{s.version}/GiniVision.framework"
