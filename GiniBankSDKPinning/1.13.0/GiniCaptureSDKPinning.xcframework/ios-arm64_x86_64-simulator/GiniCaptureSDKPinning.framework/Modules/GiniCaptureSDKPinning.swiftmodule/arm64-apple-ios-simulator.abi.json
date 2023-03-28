@@ -1,0 +1,565 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "GiniCaptureSDKPinning",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "GiniBankAPILibrary",
+        "printedName": "GiniBankAPILibrary",
+        "declKind": "Import",
+        "moduleName": "GiniCaptureSDKPinning"
+      },
+      {
+        "kind": "Import",
+        "name": "GiniBankAPILibraryPinning",
+        "printedName": "GiniBankAPILibraryPinning",
+        "declKind": "Import",
+        "moduleName": "GiniCaptureSDKPinning"
+      },
+      {
+        "kind": "Import",
+        "name": "GiniCaptureSDK",
+        "printedName": "GiniCaptureSDK",
+        "declKind": "Import",
+        "moduleName": "GiniCaptureSDKPinning"
+      },
+      {
+        "kind": "Import",
+        "name": "TrustKit",
+        "printedName": "TrustKit",
+        "declKind": "Import",
+        "moduleName": "GiniCaptureSDKPinning"
+      },
+      {
+        "kind": "Var",
+        "name": "GiniCaptureSDKPinningVersion",
+        "printedName": "GiniCaptureSDKPinningVersion",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "String",
+            "printedName": "Swift.String",
+            "usr": "s:SS"
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:21GiniCaptureSDKPinning0abC7VersionSSvp",
+        "mangledName": "$s21GiniCaptureSDKPinning0abC7VersionSSvp",
+        "moduleName": "GiniCaptureSDKPinning",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "isLet": true,
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:21GiniCaptureSDKPinning0abC7VersionSSvg",
+            "mangledName": "$s21GiniCaptureSDKPinning0abC7VersionSSvg",
+            "moduleName": "GiniCaptureSDKPinning",
+            "implicit": true,
+            "accessorKind": "get"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "GiniCaptureSDKPinning",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "GiniBankAPILibraryPinning",
+        "printedName": "GiniBankAPILibraryPinning",
+        "declKind": "Import",
+        "moduleName": "GiniCaptureSDKPinning"
+      },
+      {
+        "kind": "Import",
+        "name": "GiniBankAPILibrary",
+        "printedName": "GiniBankAPILibrary",
+        "declKind": "Import",
+        "moduleName": "GiniCaptureSDKPinning"
+      },
+      {
+        "kind": "Import",
+        "name": "TrustKit",
+        "printedName": "TrustKit",
+        "declKind": "Import",
+        "moduleName": "GiniCaptureSDKPinning"
+      },
+      {
+        "kind": "Import",
+        "name": "GiniCaptureSDK",
+        "printedName": "GiniCaptureSDK",
+        "declKind": "Import",
+        "moduleName": "GiniCaptureSDKPinning"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GiniCapture",
+        "printedName": "GiniCapture",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "viewController",
+            "printedName": "viewController(withClient:importedDocuments:configuration:resultsDelegate:publicKeyPinningConfig:documentMetadata:api:trackingDelegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Client",
+                "printedName": "GiniBankAPILibrary.Client",
+                "usr": "s:18GiniBankAPILibrary6ClientV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[GiniCaptureSDK.GiniCaptureDocument]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[GiniCaptureSDK.GiniCaptureDocument]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GiniCaptureDocument",
+                        "printedName": "GiniCaptureSDK.GiniCaptureDocument",
+                        "usr": "c:@M@GiniCaptureSDK@objc(pl)GiniCaptureDocument"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GiniConfiguration",
+                "printedName": "GiniCaptureSDK.GiniConfiguration",
+                "usr": "c:@M@GiniCaptureSDK@objc(cs)GiniConfiguration"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GiniCaptureResultsDelegate",
+                "printedName": "GiniCaptureSDK.GiniCaptureResultsDelegate",
+                "usr": "c:@M@GiniCaptureSDK@objc(pl)GiniCaptureResultsDelegate"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiniBankAPILibrary.Document.Metadata?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metadata",
+                    "printedName": "GiniBankAPILibrary.Document.Metadata",
+                    "usr": "s:18GiniBankAPILibrary8DocumentV8MetadataV"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "APIDomain",
+                "printedName": "GiniBankAPILibrary.APIDomain",
+                "hasDefaultArg": true,
+                "usr": "s:18GiniBankAPILibrary9APIDomainO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiniCaptureSDK.GiniCaptureTrackingDelegate?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GiniCaptureTrackingDelegate",
+                    "printedName": "GiniCaptureSDK.GiniCaptureTrackingDelegate",
+                    "usr": "s:14GiniCaptureSDK0aB16TrackingDelegateP"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14GiniCaptureSDK0aB0C0aB10SDKPinningE14viewController10withClient17importedDocuments13configuration15resultsDelegate22publicKeyPinningConfig16documentMetadata3api08trackingM0So06UIViewF0C0A14BankAPILibrary0H0V_SayAA0aB8Document_pGSgAA0A13ConfigurationCAA0ab7ResultsM0_pSDySSypGAP0Y0V0S0VSgAP9APIDomainOAA0ab8TrackingM0_pSgtFZ",
+            "mangledName": "$s14GiniCaptureSDK0aB0C0aB10SDKPinningE14viewController10withClient17importedDocuments13configuration15resultsDelegate22publicKeyPinningConfig16documentMetadata3api08trackingM0So06UIViewF0C0A14BankAPILibrary0H0V_SayAA0aB8Document_pGSgAA0A13ConfigurationCAA0ab7ResultsM0_pSDySSypGAP0Y0V0S0VSgAP9APIDomainOAA0ab8TrackingM0_pSgtFZ",
+            "moduleName": "GiniCaptureSDKPinning",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@GiniCaptureSDK@objc(cs)GiniCapture",
+        "mangledName": "$s14GiniCaptureSDK0aB0C",
+        "moduleName": "GiniCaptureSDK",
+        "declAttributes": [
+          "Final",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GiniNetworkingScreenAPICoordinator",
+        "printedName": "GiniNetworkingScreenAPICoordinator",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(client:resultsDelegate:giniConfiguration:publicKeyPinningConfig:documentMetadata:api:trackingDelegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GiniNetworkingScreenAPICoordinator",
+                "printedName": "GiniCaptureSDK.GiniNetworkingScreenAPICoordinator",
+                "usr": "c:@M@GiniCaptureSDK@objc(cs)GiniNetworkingScreenAPICoordinator"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Client",
+                "printedName": "GiniBankAPILibrary.Client",
+                "usr": "s:18GiniBankAPILibrary6ClientV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GiniCaptureResultsDelegate",
+                "printedName": "GiniCaptureSDK.GiniCaptureResultsDelegate",
+                "usr": "c:@M@GiniCaptureSDK@objc(pl)GiniCaptureResultsDelegate"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GiniConfiguration",
+                "printedName": "GiniCaptureSDK.GiniConfiguration",
+                "usr": "c:@M@GiniCaptureSDK@objc(cs)GiniConfiguration"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiniBankAPILibrary.Document.Metadata?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metadata",
+                    "printedName": "GiniBankAPILibrary.Document.Metadata",
+                    "usr": "s:18GiniBankAPILibrary8DocumentV8MetadataV"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "APIDomain",
+                "printedName": "GiniBankAPILibrary.APIDomain",
+                "usr": "s:18GiniBankAPILibrary9APIDomainO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiniCaptureSDK.GiniCaptureTrackingDelegate?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GiniCaptureTrackingDelegate",
+                    "printedName": "GiniCaptureSDK.GiniCaptureTrackingDelegate",
+                    "usr": "s:14GiniCaptureSDK0aB16TrackingDelegateP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:14GiniCaptureSDK0A30NetworkingScreenAPICoordinatorC0aB10SDKPinningE6client15resultsDelegate17giniConfiguration22publicKeyPinningConfig16documentMetadata3api08trackingJ0AC0A14BankAPILibrary6ClientV_AA0ab7ResultsJ0_pAA0aL0CSDySSypGAL8DocumentV0R0VSgAL9APIDomainOAA0ab8TrackingJ0_pSgtcfc",
+            "mangledName": "$s14GiniCaptureSDK0A30NetworkingScreenAPICoordinatorC0aB10SDKPinningE6client15resultsDelegate17giniConfiguration22publicKeyPinningConfig16documentMetadata3api08trackingJ0AC0A14BankAPILibrary6ClientV_AA0ab7ResultsJ0_pAA0aL0CSDySSypGAL8DocumentV0R0VSgAL9APIDomainOAA0ab8TrackingJ0_pSgtcfc",
+            "moduleName": "GiniCaptureSDKPinning",
+            "declAttributes": [
+              "Custom",
+              "Convenience"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@GiniCaptureSDK@objc(cs)GiniNetworkingScreenAPICoordinator",
+        "mangledName": "$s14GiniCaptureSDK0A30NetworkingScreenAPICoordinatorC",
+        "moduleName": "GiniCaptureSDK",
+        "isOpen": true,
+        "declAttributes": [
+          "Custom",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@GiniCaptureSDK@objc(cs)GiniScreenAPICoordinator",
+        "isExternal": true,
+        "superclassNames": [
+          "GiniCaptureSDK.GiniScreenAPICoordinator",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "GiniCaptureDelegate",
+            "printedName": "GiniCaptureDelegate",
+            "usr": "c:@M@GiniCaptureSDK@objc(pl)GiniCaptureDelegate",
+            "mangledName": "$s14GiniCaptureSDK0aB8DelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Coordinator",
+            "printedName": "Coordinator",
+            "usr": "s:14GiniCaptureSDK11CoordinatorP",
+            "mangledName": "$s14GiniCaptureSDK11CoordinatorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AnalysisDelegate",
+            "printedName": "AnalysisDelegate",
+            "usr": "c:@M@GiniCaptureSDK@objc(pl)AnalysisDelegate",
+            "mangledName": "$s14GiniCaptureSDK16AnalysisDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CameraViewControllerDelegate",
+            "printedName": "CameraViewControllerDelegate",
+            "usr": "c:@M@GiniCaptureSDK@objc(pl)CameraViewControllerDelegate",
+            "mangledName": "$s14GiniCaptureSDK28CameraViewControllerDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DocumentPickerCoordinatorDelegate",
+            "printedName": "DocumentPickerCoordinatorDelegate",
+            "usr": "s:14GiniCaptureSDK33DocumentPickerCoordinatorDelegateP",
+            "mangledName": "$s14GiniCaptureSDK33DocumentPickerCoordinatorDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UploadDelegate",
+            "printedName": "UploadDelegate",
+            "usr": "c:@M@GiniCaptureSDK@objc(pl)UploadDelegate",
+            "mangledName": "$s14GiniCaptureSDK14UploadDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ReviewViewControllerDelegate",
+            "printedName": "ReviewViewControllerDelegate",
+            "usr": "c:@M@GiniCaptureSDK@objc(pl)ReviewViewControllerDelegate",
+            "mangledName": "$s14GiniCaptureSDK28ReviewViewControllerDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "MultipageReviewViewControllerDelegate",
+            "printedName": "MultipageReviewViewControllerDelegate",
+            "usr": "s:14GiniCaptureSDK37MultipageReviewViewControllerDelegateP",
+            "mangledName": "$s14GiniCaptureSDK37MultipageReviewViewControllerDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "HelpMenuViewControllerDelegate",
+            "printedName": "HelpMenuViewControllerDelegate",
+            "usr": "s:14GiniCaptureSDK30HelpMenuViewControllerDelegateP",
+            "mangledName": "$s14GiniCaptureSDK30HelpMenuViewControllerDelegateP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/runner\/work\/gini-mobile-ios\/gini-mobile-ios\/CaptureSDK\/GiniCaptureSDKPinning\/Sources\/GiniCaptureSDKPinning\/GiniCaptureSDKPinningVersion.swift",
+      "kind": "StringLiteral",
+      "offset": 138,
+      "length": 8,
+      "value": "\"1.11.0\""
+    }
+  ]
+}

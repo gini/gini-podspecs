@@ -1,0 +1,421 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name GiniBankSDK
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+import GiniBankAPILibrary
+import GiniCaptureSDK
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+@objc final public class GiniBank : ObjectiveC.NSObject {
+  final public var giniApiLib: GiniBankAPILibrary.GiniBankAPI
+  final public var paymentService: GiniBankAPILibrary.PaymentService
+  public init(with giniApiLib: GiniBankAPILibrary.GiniBankAPI)
+  final public func receivePaymentRequest(paymentRequestId: Swift.String, completion: @escaping (Swift.Result<GiniBankAPILibrary.PaymentRequest, GiniBankSDK.GiniBankError>) -> Swift.Void)
+  final public func resolvePaymentRequest(paymentRequesId: Swift.String, paymentInfo: GiniBankSDK.PaymentInfo, completion: @escaping (Swift.Result<GiniBankAPILibrary.ResolvedPaymentRequest, GiniBankSDK.GiniBankError>) -> Swift.Void)
+  final public func returnBackToBusinessAppHandler(resolvedPaymentRequest: GiniBankAPILibrary.ResolvedPaymentRequest)
+  @objc final public class func viewController(withDelegate delegate: GiniCaptureSDK.GiniCaptureDelegate, importedDocuments: [GiniCaptureSDK.GiniCaptureDocument]? = nil) -> UIKit.UIViewController
+  final public class func viewController(withDelegate delegate: GiniCaptureSDK.GiniCaptureDelegate, importedDocuments: [GiniCaptureSDK.GiniCaptureDocument]? = nil, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate? = nil) -> UIKit.UIViewController
+  @objc final public class func viewController(withDelegate delegate: GiniCaptureSDK.GiniCaptureDelegate, importedDocument: GiniCaptureSDK.GiniCaptureDocument? = nil) -> UIKit.UIViewController
+  final public class func viewController(withDelegate delegate: GiniCaptureSDK.GiniCaptureDelegate, importedDocument: GiniCaptureSDK.GiniCaptureDocument? = nil, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate? = nil) -> UIKit.UIViewController
+  @objc final public class func viewController(withDelegate delegate: GiniCaptureSDK.GiniCaptureDelegate, withConfiguration configuration: GiniBankSDK.GiniBankConfiguration, importedDocument: GiniCaptureSDK.GiniCaptureDocument? = nil) -> UIKit.UIViewController
+  final public class func viewController(withDelegate delegate: GiniCaptureSDK.GiniCaptureDelegate, withConfiguration configuration: GiniBankSDK.GiniBankConfiguration, importedDocument: GiniCaptureSDK.GiniCaptureDocument? = nil, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate? = nil) -> UIKit.UIViewController
+  @objc final public class func setConfiguration(_ configuration: GiniBankSDK.GiniBankConfiguration)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers final public class GiniBankConfiguration : ObjectiveC.NSObject {
+  public static var shared: GiniBankSDK.GiniBankConfiguration
+  @objc final public var returnAssistantEnabled: Swift.Bool
+  @objc override dynamic public init()
+  @objc final public var customDocumentValidations: (GiniCaptureSDK.GiniCaptureDocument) -> GiniCaptureSDK.CustomDocumentValidationResult
+  @objc final public var debugModeOn: Swift.Bool
+  @objc final public var logger: GiniCaptureSDK.GiniLogger
+  @objc final public var multipageEnabled: Swift.Bool
+  @objc final public var navigationBarTintColor: UIKit.UIColor
+  @objc final public var navigationBarItemTintColor: UIKit.UIColor?
+  @objc final public var navigationBarItemFont: UIKit.UIFont
+  @objc final public var navigationBarTitleColor: UIKit.UIColor
+  @objc final public var navigationBarTitleFont: UIKit.UIFont
+  @objc final public var documentPickerNavigationBarTintColor: UIKit.UIColor?
+  @objc final public var noticeInformationBackgroundColor: UIKit.UIColor
+  @objc final public var noticeInformationTextColor: UIKit.UIColor
+  @objc final public var noticeErrorBackgroundColor: UIKit.UIColor
+  @objc final public var noticeErrorTextColor: UIKit.UIColor
+  @objc final public var openWithEnabled: Swift.Bool
+  @objc final public var qrCodeScanningEnabled: Swift.Bool
+  @objc final public var statusBarStyle: UIKit.UIStatusBarStyle
+  @objc final public var cameraNotAuthorizedTextColor: UIKit.UIColor
+  @objc final public var cameraNotAuthorizedButtonTitleColor: UIKit.UIColor
+  @objc final public var cameraPreviewCornerGuidesColor: UIKit.UIColor
+  @objc final public var cameraContainerViewBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var cameraPreviewFrameColor: GiniCaptureSDK.GiniColor
+  @objc final public var cameraButtonsViewBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var fileImportSupportedTypes: GiniCaptureSDK.GiniConfiguration.GiniCaptureImportFileTypes
+  @objc final public var fileImportToolTipBackgroundColor: UIKit.UIColor
+  @objc final public var fileImportToolTipTextColor: UIKit.UIColor
+  @objc final public var fileImportToolTipCloseButtonColor: UIKit.UIColor
+  final public var toolTipOpaqueBackgroundStyle: GiniCaptureSDK.OpaqueViewStyle {
+    get
+    set
+  }
+  @objc final public var galleryPickerItemSelectedBackgroundCheckColor: UIKit.UIColor
+  @objc final public var galleryScreenBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var flashToggleEnabled: Swift.Bool
+  @objc final public var flashOnByDefault: Swift.Bool
+  @objc final public var imagesStackIndicatorLabelTextcolor: UIKit.UIColor
+  @objc final public var navigationBarCameraTitleCloseButton: Swift.String
+  @objc final public var navigationBarCameraTitleHelpButton: Swift.String
+  @objc final public var qrCodePopupButtonColor: UIKit.UIColor
+  @objc final public var qrCodePopupTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var qrCodePopupBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var navigationBarOnboardingTitleContinueButton: Swift.String
+  @objc final public var onboardingPageIndicatorColor: GiniCaptureSDK.GiniColor
+  @objc final public var onboardingCurrentPageIndicatorColor: GiniCaptureSDK.GiniColor
+  @objc final public var onboardingCurrentPageIndicatorAlpha: CoreFoundation.CGFloat
+  @objc final public var onboardingShowAtLaunch: Swift.Bool
+  @objc final public var onboardingShowAtFirstLaunch: Swift.Bool
+  @objc final public var onboardingTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var onboardingScreenBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var onboardingPages: [UIKit.UIView] {
+    @objc get
+    @objc set
+  }
+  @objc final public var navigationBarReviewTitleBackButton: Swift.String
+  @objc final public var navigationBarReviewTitleCloseButton: Swift.String
+  @objc final public var navigationBarReviewTitleContinueButton: Swift.String
+  @objc final public var reviewBottomViewBackgroundColor: UIKit.UIColor
+  @objc final public var reviewTextBottomFont: UIKit.UIFont
+  @objc final public var reviewTextBottomColor: UIKit.UIColor
+  @objc final public var multipagePagesContainerAndToolBarColor: GiniCaptureSDK.GiniColor
+  @objc final public var indicatorCircleColor: GiniCaptureSDK.GiniColor
+  @objc final public var multipageToolbarItemsColor: UIKit.UIColor
+  @objc final public var multipagePageIndicatorColor: UIKit.UIColor
+  @objc final public var multipagePageSelectedIndicatorColor: UIKit.UIColor
+  @objc final public var multipagePageBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var multipageDraggableIconColor: UIKit.UIColor
+  final public var multipageToolTipOpaqueBackgroundStyle: GiniCaptureSDK.OpaqueViewStyle
+  final public var multipagePageSuccessfullUploadIconBackgroundColor: UIKit.UIColor
+  final public var multipagePageFailureUploadIconBackgroundColor: UIKit.UIColor
+  @objc final public var analysisLoadingIndicatorColor: UIKit.UIColor
+  @objc final public var analysisPDFInformationBackgroundColor: UIKit.UIColor
+  @objc final public var analysisPDFInformationTextColor: UIKit.UIColor
+  @objc final public var navigationBarAnalysisTitleBackButton: Swift.String
+  @objc final public var helpScreenBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var helpScreenCellsBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var navigationBarHelpMenuTitleBackToCameraButton: Swift.String
+  @objc final public var navigationBarHelpScreenTitleBackToMenuButton: Swift.String
+  @objc final public var shouldShowSupportedFormatsScreen: Swift.Bool
+  @objc final public var nonSupportedFormatsIconColor: UIKit.UIColor
+  @objc final public var supportedFormatsIconColor: UIKit.UIColor
+  @objc final public var openWithAppNameForTexts: Swift.String
+  @objc final public var stepIndicatorColor: UIKit.UIColor
+  @objc final public var noResultsBottomButtonColor: UIKit.UIColor
+  @objc final public var noResultsBottomButtonTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var noResultsBottomButtonCornerRadius: CoreFoundation.CGFloat
+  @objc final public var noResultsWarningContainerIconColor: UIKit.UIColor
+  @objc final public var albumsScreenSelectMorePhotosTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var shouldShowDragAndDropTutorial: Swift.Bool
+  @objc final public var closeButtonResource: GiniCaptureSDK.PreferredButtonResource?
+  @objc final public var helpButtonResource: GiniCaptureSDK.PreferredButtonResource?
+  @objc final public var backToCameraButtonResource: GiniCaptureSDK.PreferredButtonResource?
+  @objc final public var backToMenuButtonResource: GiniCaptureSDK.PreferredButtonResource?
+  @objc final public var nextButtonResource: GiniCaptureSDK.PreferredButtonResource?
+  @objc final public var cancelButtonResource: GiniCaptureSDK.PreferredButtonResource?
+  @objc final public var helpReturnAssistantScreenBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var helpReturnAssistantScreenSectionTitleColor: GiniCaptureSDK.GiniColor
+  @objc final public var helpReturnAssistantScreenPageTitleFont: UIKit.UIFont
+  @objc final public var helpReturnAssistantScreenSectionTitleFont: UIKit.UIFont
+  @objc final public var helpReturnAssistantScreenInstructionColor: GiniCaptureSDK.GiniColor
+  @objc final public var helpReturnAssistantScreenInstructionFont: UIKit.UIFont
+  @objc final public var helpReturnAssistantScreenBackButtonColor: UIKit.UIColor
+  @objc final public var helpReturnAssistantScreenBackButtonTitleColor: GiniCaptureSDK.GiniColor
+  @objc final public var helpReturnAssistantScreenBackButtonTitleFont: UIKit.UIFont
+  @objc final public var lineItemTintColor: UIKit.UIColor
+  @objc final public var lineItemBorderColor: UIKit.UIColor?
+  @objc final public var lineItemCountLabelColor: UIKit.UIColor
+  @objc final public var lineItemCountLabelFont: UIKit.UIFont
+  @objc final public var digitalInvoiceLineItemNameFont: UIKit.UIFont
+  @objc final public var digitalInvoiceLineItemEditButtonTitleFont: UIKit.UIFont
+  @objc final public var digitalInvoiceLineItemEditButtonTintColor: UIKit.UIColor?
+  @objc final public var digitalInvoiceLineItemToggleSwitchTintColor: UIKit.UIColor?
+  @objc final public var digitalInvoiceLineItemDeleteButtonTintColor: UIKit.UIColor?
+  @objc final public var digitalInvoiceLineItemQuantityFont: UIKit.UIFont
+  @objc final public var digitalInvoiceLineItemQuantityColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceLineItemNameColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceLineItemPriceColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceLineItemPriceMainUnitFont: UIKit.UIFont
+  @objc final public var digitalInvoiceLineItemPriceFractionalUnitFont: UIKit.UIFont
+  @objc final public var digitalInvoiceSecondaryMessageTextFont: UIKit.UIFont
+  @objc final public var digitalInvoiceSecondaryMessageTextColor: UIKit.UIColor
+  @objc final public var digitalInvoiceBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceLineItemsBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceLineItemsDisabledColor: UIKit.UIColor
+  @objc final public var digitalInvoiceFooterMessageTextFont: UIKit.UIFont
+  @objc final public var digitalInvoiceFooterAddArticleButtonTintColor: UIKit.UIColor
+  @objc final public var digitalInvoiceFooterAddArticleButtonTitleFont: UIKit.UIFont
+  @objc final public var digitalInvoiceFooterMessageTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceItemsSectionHeaderTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceItemsSectionHeaderTextFont: UIKit.UIFont
+  @objc final public var payButtonBackgroundColor: UIKit.UIColor
+  @objc final public var payButtonTitleTextColor: UIKit.UIColor
+  @objc final public var payButtonTitleFont: UIKit.UIFont
+  @objc final public var skipButtonBackgroundColor: UIKit.UIColor
+  @objc final public var skipButtonTitleTextColor: UIKit.UIColor
+  @objc final public var skipButtonBorderColor: UIKit.UIColor
+  @objc final public var skipButtonTitleFont: UIKit.UIFont
+  @objc final public var digitalInvoiceAddonLabelFont: UIKit.UIFont
+  @objc final public var digitalInvoiceTotalCaptionLabelFont: UIKit.UIFont
+  @objc final public var digitalInvoiceTotalCaptionLabelTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceTotalExplanationLabelFont: UIKit.UIFont
+  @objc final public var digitalInvoiceTotalExplanationLabelTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceAddonPriceMainUnitFont: UIKit.UIFont
+  @objc final public var digitalInvoiceAddonPriceFractionalUnitFont: UIKit.UIFont
+  @objc final public var digitalInvoiceAddonPriceColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc final public var digitalInvoiceAddonLabelColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceTotalPriceColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc final public var digitalInvoiceTotalPriceMainUnitFont: UIKit.UIFont
+  @objc final public var digitalInvoiceTotalPriceFractionalUnitFont: UIKit.UIFont
+  @objc final public var lineItemDetailsDescriptionLabelFont: UIKit.UIFont
+  @objc final public var lineItemDetailsDescriptionLabelColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc final public var lineItemDetailsBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var lineItemDetailsContentLabelFont: UIKit.UIFont
+  @objc final public var lineItemDetailsContentLabelColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc final public var lineItemDetailsContentHighlightedColor: UIKit.UIColor
+  @objc final public var lineItemDetailsTotalPriceMainUnitFont: UIKit.UIFont
+  @objc final public var lineItemDetailsTotalPriceFractionalUnitFont: UIKit.UIFont
+  @objc final public var digitalInvoiceOnboardingBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceOnboardingTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceOnboardingFirstLabelTextFont: UIKit.UIFont
+  @objc final public var digitalInvoiceOnboardingSecondLabelTextFont: UIKit.UIFont
+  @objc final public var digitalInvoiceOnboardingDoneButtonBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceOnboardingDoneButtonTextFont: UIKit.UIFont
+  @objc final public var digitalInvoiceOnboardingHideButtonTextFont: UIKit.UIFont
+  @objc final public var digitalInvoiceOnboardingDoneButtonTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceOnboardingHideButtonTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceInfoViewBackgroundColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewChevronImageViewTintColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewWarningLabelsTextColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewTopLabelFont: UIKit.UIFont
+  @objc final public var digitalInvoiceInfoViewMiddleLabelFont: UIKit.UIFont
+  @objc final public var digitalInvoiceInfoViewBottomLabelFont: UIKit.UIFont
+  @objc final public var digitalInvoiceInfoViewLeftButtonBackgroundColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewLeftButtonBorderColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewLeftkButtonTitleColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewRightButtonBackgroundColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewRightButtonBorderColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewRightButtonTitleColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewButtonsFont: UIKit.UIFont
+  @objc final public var enableReturnReasons: Swift.Bool
+  @objc final public var customFont: GiniCaptureSDK.GiniCaptureFont {
+    @objc get
+    @objc set
+  }
+  final public var customMenuItems: [GiniCaptureSDK.HelpMenuViewController.Item]
+  final public var giniErrorLoggerIsOn: Swift.Bool
+  final public var customGiniErrorLoggerDelegate: GiniCaptureSDK.GiniCaptureErrorLoggerDelegate?
+  final public var localizedStringsTableName: Swift.String?
+  final public func captureConfiguration() -> GiniCaptureSDK.GiniConfiguration
+  final public func returnAssistantConfiguration() -> GiniBankSDK.ReturnAssistantConfiguration
+  final public func updateConfiguration(withCaptureConfiguration configuration: GiniCaptureSDK.GiniConfiguration)
+  @objc deinit
+}
+@_Concurrency.MainActor(unsafe) open class GiniBankNetworkingScreenApiCoordinator : GiniCaptureSDK.GiniScreenAPICoordinator, GiniCaptureSDK.GiniCaptureDelegate {
+  @_Concurrency.MainActor(unsafe) @objc public func didCapture(document: GiniCaptureSDK.GiniCaptureDocument, networkDelegate: GiniCaptureSDK.GiniCaptureNetworkDelegate)
+  @_Concurrency.MainActor(unsafe) @objc public func didReview(documents: [GiniCaptureSDK.GiniCaptureDocument], networkDelegate: GiniCaptureSDK.GiniCaptureNetworkDelegate)
+  @_Concurrency.MainActor(unsafe) @objc public func didCancelCapturing()
+  @_Concurrency.MainActor(unsafe) @objc public func didCancelReview(for document: GiniCaptureSDK.GiniCaptureDocument)
+  @_Concurrency.MainActor(unsafe) @objc public func didCancelAnalysis()
+  @_Concurrency.MainActor(unsafe) public init(client: GiniBankAPILibrary.Client, resultsDelegate: GiniCaptureSDK.GiniCaptureResultsDelegate, configuration: GiniBankSDK.GiniBankConfiguration, documentMetadata: GiniBankAPILibrary.Document.Metadata?, api: GiniBankAPILibrary.APIDomain, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate?, lib: GiniBankAPILibrary.GiniBankAPI)
+  @_Concurrency.MainActor(unsafe) public init(resultsDelegate: GiniCaptureSDK.GiniCaptureResultsDelegate, configuration: GiniBankSDK.GiniBankConfiguration, documentMetadata: GiniBankAPILibrary.Document.Metadata?, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate?, captureNetworkService: GiniCaptureSDK.GiniCaptureNetworkService)
+  @objc deinit
+}
+extension GiniBankSDK.GiniBankNetworkingScreenApiCoordinator {
+  @_Concurrency.MainActor(unsafe) public func deliverWithReturnAssistant(result: GiniBankAPILibrary.ExtractionResult, analysisDelegate: GiniCaptureSDK.AnalysisDelegate)
+  @_Concurrency.MainActor(unsafe) public func showDigitalInvoiceScreen(digitalInvoice: GiniBankSDK.DigitalInvoice, analysisDelegate: GiniCaptureSDK.AnalysisDelegate)
+  @_Concurrency.MainActor(unsafe) public func startAnalysisWithReturnAssistant(networkDelegate: GiniCaptureSDK.GiniCaptureNetworkDelegate)
+}
+public protocol GiniBankAnalysisDelegate : GiniCaptureSDK.AnalysisDelegate {
+}
+public func receivePaymentRequestId(url: Foundation.URL, completion: @escaping (Swift.Result<Swift.String, GiniBankSDK.GiniBankError>) -> Swift.Void)
+extension GiniBankSDK.GiniBank {
+  final public class func viewController(withClient client: GiniBankAPILibrary.Client, importedDocuments: [GiniCaptureSDK.GiniCaptureDocument]? = nil, configuration: GiniBankSDK.GiniBankConfiguration, resultsDelegate: GiniCaptureSDK.GiniCaptureResultsDelegate, documentMetadata: GiniBankAPILibrary.Document.Metadata? = nil, api: GiniBankAPILibrary.APIDomain = .default, userApi: GiniBankAPILibrary.UserDomain = .default, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate? = nil) -> UIKit.UIViewController
+  final public class func viewController(importedDocuments: [GiniCaptureSDK.GiniCaptureDocument]? = nil, configuration: GiniBankSDK.GiniBankConfiguration, resultsDelegate: GiniCaptureSDK.GiniCaptureResultsDelegate, documentMetadata: GiniBankAPILibrary.Document.Metadata? = nil, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate? = nil, networkingService: GiniCaptureSDK.GiniCaptureNetworkService) -> UIKit.UIViewController
+  final public class func removeStoredCredentials(for client: GiniBankAPILibrary.Client) throws
+}
+extension GiniBankSDK.GiniBankNetworkingScreenApiCoordinator : GiniBankSDK.DigitalInvoiceViewControllerDelegate {
+  @_Concurrency.MainActor(unsafe) public func didFinish(viewController: GiniBankSDK.DigitalInvoiceViewController, invoice: GiniBankSDK.DigitalInvoice)
+}
+public enum GiniBankError : Swift.Error, Swift.Equatable {
+  case noRequestId
+  case apiError(GiniBankAPILibrary.GiniError)
+  case amountParsingError(amountString: Swift.String)
+  public static func == (a: GiniBankSDK.GiniBankError, b: GiniBankSDK.GiniBankError) -> Swift.Bool
+}
+public struct PaymentInfo {
+  public var recipient: Swift.String, iban: Swift.String
+  public var bic: Swift.String?
+  public var amount: Swift.String, purpose: Swift.String
+  public init(recipient: Swift.String, iban: Swift.String, bic: Swift.String?, amount: Swift.String, purpose: Swift.String)
+}
+public struct DigitalInvoice {
+}
+extension GiniBankSDK.DigitalInvoice {
+  public init(extractionResult: GiniBankAPILibrary.ExtractionResult) throws
+  public var extractionResult: GiniBankAPILibrary.ExtractionResult {
+    get
+  }
+}
+public protocol DigitalInvoiceViewControllerDelegate : AnyObject {
+  func didFinish(viewController: GiniBankSDK.DigitalInvoiceViewController, invoice: GiniBankSDK.DigitalInvoice)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class DigitalInvoiceViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public var invoice: GiniBankSDK.DigitalInvoice? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) weak public var delegate: GiniBankSDK.DigitalInvoiceViewControllerDelegate?
+  @_Concurrency.MainActor(unsafe) public var analysisDelegate: GiniCaptureSDK.AnalysisDelegate?
+  @_Concurrency.MainActor(unsafe) public var closeReturnAssistantBlock: () -> Swift.Void
+  @_Concurrency.MainActor(unsafe) public var returnAssistantConfiguration: GiniBankSDK.ReturnAssistantConfiguration
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension GiniBankSDK.DigitalInvoiceViewController : UIKit.UITableViewDelegate, UIKit.UITableViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, estimatedHeightForRowAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+}
+extension UIKit.UITextField {
+  @_Concurrency.MainActor(unsafe) public func moveSelectedTextRange(from position: UIKit.UITextPosition, to offset: Swift.Int)
+}
+@objc @_inheritsConvenienceInitializers final public class ReturnAssistantConfiguration : ObjectiveC.NSObject {
+  public static var shared: GiniBankSDK.ReturnAssistantConfiguration
+  @objc override dynamic public init()
+  @objc final public var helpReturnAssistantScreenBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var helpReturnAssistantScreenSectionTitleColor: GiniCaptureSDK.GiniColor
+  @objc final public var helpReturnAssistantScreenPageTitleFont: UIKit.UIFont
+  @objc final public var helpReturnAssistantScreenSectionTitleFont: UIKit.UIFont
+  @objc final public var helpReturnAssistantScreenInstructionColor: GiniCaptureSDK.GiniColor
+  @objc final public var helpReturnAssistantScreenInstructionFont: UIKit.UIFont
+  @objc final public var helpReturnAssistantScreenBackButtonColor: UIKit.UIColor
+  @objc final public var helpReturnAssistantScreenBackButtonTitleColor: GiniCaptureSDK.GiniColor
+  @objc final public var helpReturnAssistantScreenBackButtonTitleFont: UIKit.UIFont
+  @objc final public var lineItemTintColor: UIKit.UIColor
+  @objc final public var lineItemBorderColor: UIKit.UIColor?
+  @objc final public var lineItemCountLabelColor: UIKit.UIColor
+  @objc final public var lineItemCountLabelFont: UIKit.UIFont
+  @objc final public var digitalInvoiceLineItemNameFont: UIKit.UIFont
+  @objc final public var digitalInvoiceLineItemEditButtonTitleFont: UIKit.UIFont
+  @objc final public var digitalInvoiceLineItemEditButtonTintColor: UIKit.UIColor?
+  @objc final public var digitalInvoiceLineItemToggleSwitchTintColor: UIKit.UIColor?
+  @objc final public var digitalInvoiceLineItemDeleteButtonTintColor: UIKit.UIColor?
+  @objc final public var digitalInvoiceLineItemQuantityFont: UIKit.UIFont
+  @objc final public var digitalInvoiceLineItemQuantityColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceLineItemNameColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceLineItemPriceColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceLineItemPriceMainUnitFont: UIKit.UIFont
+  @objc final public var digitalInvoiceLineItemPriceFractionalUnitFont: UIKit.UIFont
+  @objc final public var digitalInvoiceSecondaryMessageTextFont: UIKit.UIFont
+  @objc final public var digitalInvoiceSecondaryMessageTextColor: UIKit.UIColor
+  @objc final public var digitalInvoiceBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceLineItemsBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceLineItemsDisabledColor: UIKit.UIColor
+  @objc final public var digitalInvoiceFooterMessageTextFont: UIKit.UIFont
+  @objc final public var digitalInvoiceFooterAddArticleButtonTintColor: UIKit.UIColor
+  @objc final public var digitalInvoiceFooterAddArticleButtonTitleFont: UIKit.UIFont
+  @objc final public var digitalInvoiceFooterMessageTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceItemsSectionHeaderTextFont: UIKit.UIFont
+  @objc final public var digitalInvoiceItemsSectionHeaderTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var payButtonBackgroundColor: UIKit.UIColor
+  @objc final public var payButtonTitleTextColor: UIKit.UIColor
+  @objc final public var payButtonTitleFont: UIKit.UIFont
+  @objc final public var skipButtonBackgroundColor: UIKit.UIColor
+  @objc final public var skipButtonTitleTextColor: UIKit.UIColor
+  @objc final public var skipButtonBorderColor: UIKit.UIColor
+  @objc final public var skipButtonTitleFont: UIKit.UIFont
+  @objc final public var digitalInvoiceAddonLabelFont: UIKit.UIFont
+  @objc final public var digitalInvoiceTotalCaptionLabelFont: UIKit.UIFont
+  @objc final public var digitalInvoiceTotalCaptionLabelTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceTotalExplanationLabelFont: UIKit.UIFont
+  @objc final public var digitalInvoiceTotalExplanationLabelTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceAddonPriceMainUnitFont: UIKit.UIFont
+  @objc final public var digitalInvoiceAddonPriceFractionalUnitFont: UIKit.UIFont
+  @objc final public var digitalInvoiceAddonPriceColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc final public var digitalInvoiceAddonLabelColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceTotalPriceColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc final public var digitalInvoiceTotalPriceMainUnitFont: UIKit.UIFont
+  @objc final public var digitalInvoiceTotalPriceFractionalUnitFont: UIKit.UIFont
+  @objc final public var lineItemDetailsDescriptionLabelFont: UIKit.UIFont
+  @objc final public var lineItemDetailsDescriptionLabelColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc final public var lineItemDetailsBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var lineItemDetailsContentLabelFont: UIKit.UIFont
+  @objc final public var lineItemDetailsContentLabelColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc final public var lineItemDetailsContentHighlightedColor: UIKit.UIColor
+  @objc final public var lineItemDetailsTotalPriceMainUnitFont: UIKit.UIFont
+  @objc final public var lineItemDetailsTotalPriceFractionalUnitFont: UIKit.UIFont
+  @objc final public var digitalInvoiceOnboardingBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceOnboardingTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceOnboardingFirstLabelTextFont: UIKit.UIFont
+  @objc final public var digitalInvoiceOnboardingSecondLabelTextFont: UIKit.UIFont
+  @objc final public var digitalInvoiceOnboardingDoneButtonBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceOnboardingDoneButtonTextFont: UIKit.UIFont
+  @objc final public var digitalInvoiceOnboardingHideButtonTextFont: UIKit.UIFont
+  @objc final public var digitalInvoiceOnboardingDoneButtonTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceOnboardingHideButtonTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var digitalInvoiceInfoViewBackgroundColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewChevronImageViewTintColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewWarningLabelsTextColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewTopLabelFont: UIKit.UIFont
+  @objc final public var digitalInvoiceInfoViewMiddleLabelFont: UIKit.UIFont
+  @objc final public var digitalInvoiceInfoViewBottomLabelFont: UIKit.UIFont
+  @objc final public var digitalInvoiceInfoViewLeftButtonBackgroundColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewLeftButtonBorderColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewLeftkButtonTitleColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewRightButtonBackgroundColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewRightButtonBorderColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewRightButtonTitleColor: UIKit.UIColor
+  @objc final public var digitalInvoiceInfoViewButtonsFont: UIKit.UIFont
+  @objc final public var enableReturnReasons: Swift.Bool
+  @objc final public var customFont: GiniCaptureSDK.GiniCaptureFont {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+}
+extension Swift.String {
+  public static func ginibankLocalized<T>(resource: T, args: Swift.CVarArg...) -> Swift.String where T : GiniCaptureSDK.LocalizableStringResource
+  public static func parseAmountStringToBackendFormat(string: Swift.String) throws -> Swift.String
+}
+public let GiniBankSDKVersion: Swift.String

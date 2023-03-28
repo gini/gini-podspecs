@@ -1,0 +1,20 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name GiniCaptureSDKPinning
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+import GiniBankAPILibrary
+import GiniBankAPILibraryPinning
+import GiniCaptureSDK
+import Swift
+import TrustKit
+import UIKit
+import _Concurrency
+import _StringProcessing
+extension GiniCaptureSDK.GiniCapture {
+  final public class func viewController(withClient client: GiniBankAPILibrary.Client, importedDocuments: [GiniCaptureSDK.GiniCaptureDocument]? = nil, configuration: GiniCaptureSDK.GiniConfiguration, resultsDelegate: GiniCaptureSDK.GiniCaptureResultsDelegate, publicKeyPinningConfig: [Swift.String : Any], documentMetadata: GiniBankAPILibrary.Document.Metadata? = nil, api: GiniBankAPILibrary.APIDomain = .default, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate? = nil) -> UIKit.UIViewController
+}
+public let GiniCaptureSDKPinningVersion: Swift.String
+extension GiniCaptureSDK.GiniNetworkingScreenAPICoordinator {
+  @_Concurrency.MainActor(unsafe) convenience public init(client: GiniBankAPILibrary.Client, resultsDelegate: GiniCaptureSDK.GiniCaptureResultsDelegate, giniConfiguration: GiniCaptureSDK.GiniConfiguration, publicKeyPinningConfig: [Swift.String : Any], documentMetadata: GiniBankAPILibrary.Document.Metadata?, api: GiniBankAPILibrary.APIDomain, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate?)
+}

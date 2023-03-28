@@ -1,0 +1,21 @@
+Pod::Spec.new do |spec|
+  spec.name               = "GiniBankSDKPinning"
+  spec.version            = "1.13.0"
+  spec.summary            = "Gini Bank SDK for iOS with certificate pinning"
+  spec.description        = "The Gini Bank SDK provides components for capturing, reviewing and analyzing photos of invoices and remittance slips."
+  spec.homepage           = "gini.net"
+  spec.documentation_url  = "https://developer.gini.net/gini-mobile-ios/GiniBankSDK/#{spec.version.to_s}/"
+  spec.author             = "Gini GmbH"
+  spec.license            = { :type => 'Private', :file => 'LICENSE' }
+  spec.source             = { :git => 'https://github.com/gini/bank-sdk-pinning-ios.git', :tag => spec.version.to_s }
+  spec.swift_version      = "5.3"
+
+  # Supported deployment targets
+  spec.ios.deployment_target  = "12.0"
+
+  # Published binaries
+  spec.vendored_frameworks = ["GiniBankSDK.xcframework", "GiniBankSDKPinning.xcframework",
+                              "GiniCaptureSDK.xcframework", "GiniCaptureSDKPinning.xcframework", 
+                              "GiniBankAPILibrary.xcframework", "GiniBankAPILibraryPinning.xcframework",
+                              "TrustKit.xcframework"]
+end

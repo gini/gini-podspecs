@@ -1,0 +1,394 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "TrustKit",
+        "printedName": "TrustKit",
+        "declKind": "Import",
+        "moduleName": "GiniBankAPILibraryPinning",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "GiniBankAPILibrary",
+        "printedName": "GiniBankAPILibrary",
+        "declKind": "Import",
+        "moduleName": "GiniBankAPILibraryPinning"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SessionDelegate",
+        "printedName": "SessionDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "urlSession",
+            "printedName": "urlSession(_:didReceive:completionHandler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URLSession",
+                "printedName": "Foundation.URLSession",
+                "usr": "c:objc(cs)NSURLSession"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URLAuthenticationChallenge",
+                "printedName": "Foundation.URLAuthenticationChallenge",
+                "usr": "c:objc(cs)NSURLAuthenticationChallenge"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuthChallengeDisposition",
+                        "printedName": "Foundation.URLSession.AuthChallengeDisposition",
+                        "usr": "c:@E@NSURLSessionAuthChallengeDisposition"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.URLCredential?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "URLCredential",
+                            "printedName": "Foundation.URLCredential",
+                            "usr": "c:objc(cs)NSURLCredential"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@GiniBankAPILibraryPinning@objc(cs)SessionDelegate(im)URLSession:didReceiveChallenge:completionHandler:",
+            "mangledName": "$s25GiniBankAPILibraryPinning15SessionDelegateC03urlE0_10didReceive17completionHandlerySo12NSURLSessionC_So28NSURLAuthenticationChallengeCySo0l4AuthN11DispositionV_So15NSURLCredentialCSgtctF",
+            "moduleName": "GiniBankAPILibraryPinning",
+            "isOpen": true,
+            "objc_name": "URLSession:didReceiveChallenge:completionHandler:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SessionDelegate",
+                "printedName": "GiniBankAPILibraryPinning.SessionDelegate",
+                "usr": "c:@M@GiniBankAPILibraryPinning@objc(cs)SessionDelegate"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@GiniBankAPILibraryPinning@objc(cs)SessionDelegate(im)init",
+            "mangledName": "$s25GiniBankAPILibraryPinning15SessionDelegateCACycfc",
+            "moduleName": "GiniBankAPILibraryPinning",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@GiniBankAPILibraryPinning@objc(cs)SessionDelegate",
+        "mangledName": "$s25GiniBankAPILibraryPinning15SessionDelegateC",
+        "moduleName": "GiniBankAPILibraryPinning",
+        "isOpen": true,
+        "declAttributes": [
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Var",
+        "name": "GiniBankAPILibraryPinningVersion",
+        "printedName": "GiniBankAPILibraryPinningVersion",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "String",
+            "printedName": "Swift.String",
+            "usr": "s:SS"
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:25GiniBankAPILibraryPinning0abcD7VersionSSvp",
+        "mangledName": "$s25GiniBankAPILibraryPinning0abcD7VersionSSvp",
+        "moduleName": "GiniBankAPILibraryPinning",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "isLet": true,
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:25GiniBankAPILibraryPinning0abcD7VersionSSvg",
+            "mangledName": "$s25GiniBankAPILibraryPinning0abcD7VersionSSvg",
+            "moduleName": "GiniBankAPILibraryPinning",
+            "implicit": true,
+            "accessorKind": "get"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Builder",
+        "printedName": "Builder",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(client:api:userApi:pinningConfig:logLevel:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Builder",
+                "printedName": "GiniBankAPILibrary.GiniBankAPI.Builder",
+                "usr": "s:18GiniBankAPILibrary0aB3APIC7BuilderV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Client",
+                "printedName": "GiniBankAPILibrary.Client",
+                "usr": "s:18GiniBankAPILibrary6ClientV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "APIDomain",
+                "printedName": "GiniBankAPILibrary.APIDomain",
+                "hasDefaultArg": true,
+                "usr": "s:18GiniBankAPILibrary9APIDomainO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UserDomain",
+                "printedName": "GiniBankAPILibrary.UserDomain",
+                "hasDefaultArg": true,
+                "usr": "s:18GiniBankAPILibrary10UserDomainO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LogLevel",
+                "printedName": "GiniBankAPILibrary.LogLevel",
+                "hasDefaultArg": true,
+                "usr": "s:18GiniBankAPILibrary8LogLevelO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:18GiniBankAPILibrary0aB3APIC7BuilderV0abC7PinningE6client3api7userApi13pinningConfig8logLevelAeA6ClientV_AA9APIDomainOAA10UserDomainOSDySSypGAA03LogN0Otcfc",
+            "mangledName": "$s18GiniBankAPILibrary0aB3APIC7BuilderV0abC7PinningE6client3api7userApi13pinningConfig8logLevelAeA6ClientV_AA9APIDomainOAA10UserDomainOSDySSypGAA03LogN0Otcfc",
+            "moduleName": "GiniBankAPILibraryPinning",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(customApiDomain:alternativeTokenSource:pinningConfig:logLevel:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Builder",
+                "printedName": "GiniBankAPILibrary.GiniBankAPI.Builder",
+                "usr": "s:18GiniBankAPILibrary0aB3APIC7BuilderV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AlternativeTokenSource",
+                "printedName": "GiniBankAPILibrary.AlternativeTokenSource",
+                "usr": "s:18GiniBankAPILibrary22AlternativeTokenSourceP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LogLevel",
+                "printedName": "GiniBankAPILibrary.LogLevel",
+                "hasDefaultArg": true,
+                "usr": "s:18GiniBankAPILibrary8LogLevelO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:18GiniBankAPILibrary0aB3APIC7BuilderV0abC7PinningE15customApiDomain22alternativeTokenSource13pinningConfig8logLevelAESS_AA011AlternativekL0_pSDySSypGAA03LogP0Otcfc",
+            "mangledName": "$s18GiniBankAPILibrary0aB3APIC7BuilderV0abC7PinningE15customApiDomain22alternativeTokenSource13pinningConfig8logLevelAESS_AA011AlternativekL0_pSDySSypGAA03LogP0Otcfc",
+            "moduleName": "GiniBankAPILibraryPinning",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:18GiniBankAPILibrary0aB3APIC7BuilderV",
+        "mangledName": "$s18GiniBankAPILibrary0aB3APIC7BuilderV",
+        "moduleName": "GiniBankAPILibrary",
+        "isFromExtension": true,
+        "isExternal": true
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/runner\/work\/gini-mobile-ios\/gini-mobile-ios\/BankAPILibrary\/GiniBankAPILibraryPinning\/Sources\/GiniBankAPILibraryPinning\/GiniBankAPILibraryPinningVersion.swift",
+      "kind": "StringLiteral",
+      "offset": 146,
+      "length": 7,
+      "value": "\"1.5.0\""
+    }
+  ]
+}
