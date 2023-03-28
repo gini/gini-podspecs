@@ -7,7 +7,7 @@ Pod::Spec.new do |spec|
   spec.documentation_url  = "https://developer.gini.net/gini-mobile-ios/GiniBankSDK/#{spec.version.to_s}/"
   spec.author             = "Gini GmbH"
   spec.license            = { :type => 'Private', :file => 'LICENSE' }
-  spec.source             = { :git => 'https://github.com/gini/bank-sdk-pinning-ios.git', :tag => spec.version.to_s }
+  spec.source             = { :http => "https://github.com/gini/gini-podspecs/raw/master/GiniBankSDKPinning/#{spec.version.to_s}/GiniBankSDKPinning-XCFrameworks.zip" }
   spec.swift_version      = "5.3"
 
   # Supported deployment targets
