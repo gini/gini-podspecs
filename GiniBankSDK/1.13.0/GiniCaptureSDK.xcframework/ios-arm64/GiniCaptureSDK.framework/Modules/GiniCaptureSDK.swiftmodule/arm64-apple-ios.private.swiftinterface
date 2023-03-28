@@ -1,0 +1,1081 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name GiniCaptureSDK
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import Foundation
+import GiniBankAPILibrary
+import ImageIO
+import MobileCoreServices
+import Photos
+import PhotosUI
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import os
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class GiniBarButtonItem : UIKit.UIBarButtonItem {
+  @_Concurrency.MainActor(unsafe) public init(image: UIKit.UIImage?, title: Swift.String?, style: UIKit.UIBarButtonItem.Style, target: Swift.AnyObject?, action: ObjectiveC.Selector)
+  @objc deinit
+}
+@objc public enum NoticeActionType : Swift.Int {
+  case retry, retake
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum OpaqueViewStyle {
+  case blurred(style: UIKit.UIBlurEffect.Style)
+  case dimmed
+}
+public protocol Diffable {
+  var primaryKey: Swift.String { get }
+  func isUpdated(to element: Self) -> Swift.Bool
+}
+extension Foundation.Bundle {
+  public var appName: Swift.String {
+    get
+  }
+}
+extension Swift.Collection where Self.Element == GiniCaptureSDK.GiniCaptureDocument {
+  public var containsDifferentTypes: Swift.Bool {
+    get
+  }
+  public var type: GiniCaptureSDK.GiniCaptureDocumentType? {
+    get
+  }
+}
+extension Swift.Array where Element == GiniCaptureSDK.GiniCapturePage {
+  public mutating func remove(_ document: GiniCaptureSDK.GiniCaptureDocument)
+  public func index(of document: GiniCaptureSDK.GiniCaptureDocument) -> Swift.Int?
+  public var type: GiniCaptureSDK.GiniCaptureDocumentType? {
+    get
+  }
+}
+extension Swift.Optional where Wrapped == [Foundation.NSAttributedString.Key : Any] {
+  public var dictionary: [Swift.String : Any]? {
+    get
+  }
+}
+extension Swift.String {
+  public static func localized<T>(resource: T, args: Swift.CVarArg...) -> Swift.String where T : GiniCaptureSDK.LocalizableStringResource
+}
+extension UIKit.UIColor {
+  public static func from(giniColor: GiniCaptureSDK.GiniColor) -> UIKit.UIColor
+  public static func from(hex: Swift.UInt) -> UIKit.UIColor
+}
+extension UIKit.UIDevice {
+  @_Concurrency.MainActor(unsafe) public var isIpad: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var isIphone: Swift.Bool {
+    get
+  }
+}
+extension UIKit.UINavigationController {
+  @_Concurrency.MainActor(unsafe) public func applyStyle(withConfiguration configuration: GiniCaptureSDK.GiniConfiguration)
+}
+public typealias GiniCaptureNetworkDelegate = GiniCaptureSDK.AnalysisDelegate & GiniCaptureSDK.UploadDelegate
+@objc public protocol GiniCaptureDelegate {
+  @objc func didCapture(document: GiniCaptureSDK.GiniCaptureDocument, networkDelegate: GiniCaptureSDK.GiniCaptureNetworkDelegate)
+  @objc @available(*, unavailable, message: "Use didCapture(document: GiniCaptureDocument, networkDelegate: GiniCaptureNetworkDelegate) instead")
+  func didCapture(document: GiniCaptureSDK.GiniCaptureDocument)
+  @objc @available(*, unavailable, message: "Use didCapture(document: GiniCaptureDocument, uploadDelegate: UploadDelegate) instead")
+  func didCapture(_ imageData: Foundation.Data)
+  @objc func didReview(documents: [GiniCaptureSDK.GiniCaptureDocument], networkDelegate: GiniCaptureSDK.GiniCaptureNetworkDelegate)
+  @objc @available(*, unavailable, message: "Use didReview(documents: [GiniCaptureDocument]) instead")
+  func didReview(document: GiniCaptureSDK.GiniCaptureDocument, withChanges changes: Swift.Bool)
+  @objc @available(*, unavailable, message: "Use didReview(documents: [GiniCaptureDocument]) instead")
+  func didReview(_ imageData: Foundation.Data, withChanges changes: Swift.Bool)
+  @available(*, unavailable, message: "This method is no longer needed since the analysis should start\nalways in the didReview(documents:networkDelegate:) method")
+  @objc optional func didShowAnalysis(_ analysisDelegate: GiniCaptureSDK.AnalysisDelegate)
+  @objc func didCancelCapturing()
+  @objc func didCancelReview(for document: GiniCaptureSDK.GiniCaptureDocument)
+  @objc @available(*, unavailable, message: "Use didCancelReview(for: GiniCaptureDocument) instead")
+  func didCancelReview()
+  @objc func didCancelAnalysis()
+}
+@_inheritsConvenienceInitializers @objc final public class GiniCapture : ObjectiveC.NSObject {
+  @objc final public class func setConfiguration(_ configuration: GiniCaptureSDK.GiniConfiguration)
+  @objc final public class func viewController(withDelegate delegate: GiniCaptureSDK.GiniCaptureDelegate, importedDocuments: [GiniCaptureSDK.GiniCaptureDocument]? = nil) -> UIKit.UIViewController
+  final public class func viewController(withDelegate delegate: GiniCaptureSDK.GiniCaptureDelegate, importedDocuments: [GiniCaptureSDK.GiniCaptureDocument]? = nil, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate? = nil) -> UIKit.UIViewController
+  @objc final public class func viewController(withDelegate delegate: GiniCaptureSDK.GiniCaptureDelegate, importedDocument: GiniCaptureSDK.GiniCaptureDocument? = nil) -> UIKit.UIViewController
+  final public class func viewController(withDelegate delegate: GiniCaptureSDK.GiniCaptureDelegate, importedDocument: GiniCaptureSDK.GiniCaptureDocument? = nil, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate? = nil) -> UIKit.UIViewController
+  @objc final public class func viewController(withDelegate delegate: GiniCaptureSDK.GiniCaptureDelegate, withConfiguration configuration: GiniCaptureSDK.GiniConfiguration, importedDocument: GiniCaptureSDK.GiniCaptureDocument? = nil) -> UIKit.UIViewController
+  final public class func viewController(withDelegate delegate: GiniCaptureSDK.GiniCaptureDelegate, withConfiguration configuration: GiniCaptureSDK.GiniConfiguration, importedDocument: GiniCaptureSDK.GiniCaptureDocument? = nil, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate? = nil) -> UIKit.UIViewController
+  @objc public static var versionString: Swift.String {
+    @objc get
+  }
+  @objc final public class func validate(_ document: GiniCaptureSDK.GiniCaptureDocument, withConfig giniConfiguration: GiniCaptureSDK.GiniConfiguration) throws
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class GiniColor : ObjectiveC.NSObject {
+  public init(lightModeColor: UIKit.UIColor, darkModeColor: UIKit.UIColor)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc final public class GiniConfiguration : ObjectiveC.NSObject {
+  @objc public enum GiniCaptureImportFileTypes : Swift.Int {
+    case none
+    case pdf
+    case pdf_and_images
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc override dynamic public init()
+  @available(*, unavailable, message: "Use the screen specific background color instead e.g. onboardingScreenBackgroundColor")
+  @objc final public var backgroundColor: UIKit.UIColor
+  @objc final public var customDocumentValidations: (GiniCaptureSDK.GiniCaptureDocument) -> GiniCaptureSDK.CustomDocumentValidationResult
+  @objc final public var customFont: GiniCaptureSDK.GiniCaptureFont {
+    @objc get
+    @objc set
+  }
+  @objc final public var debugModeOn: Swift.Bool
+  @objc final public var logger: GiniCaptureSDK.GiniLogger
+  @objc final public var multipageEnabled: Swift.Bool
+  @objc final public var navigationBarTintColor: UIKit.UIColor
+  @objc final public var navigationBarItemTintColor: UIKit.UIColor?
+  @objc final public var navigationBarItemFont: UIKit.UIFont
+  @objc final public var navigationBarTitleColor: UIKit.UIColor
+  @objc final public var navigationBarTitleFont: UIKit.UIFont
+  @objc final public var documentPickerNavigationBarTintColor: UIKit.UIColor?
+  @objc final public var noticeInformationBackgroundColor: UIKit.UIColor
+  @objc final public var noticeInformationTextColor: UIKit.UIColor
+  @objc final public var noticeErrorBackgroundColor: UIKit.UIColor
+  @objc final public var noticeErrorTextColor: UIKit.UIColor
+  @objc final public var openWithEnabled: Swift.Bool
+  @objc final public var qrCodeScanningEnabled: Swift.Bool
+  @objc final public var statusBarStyle: UIKit.UIStatusBarStyle
+  @objc final public var cameraNotAuthorizedTextColor: UIKit.UIColor
+  @objc final public var cameraNotAuthorizedButtonTitleColor: UIKit.UIColor
+  @objc final public var cameraSetupLoadingIndicatorColor: UIKit.UIColor
+  @objc final public var cameraPreviewCornerGuidesColor: UIKit.UIColor
+  @objc final public var cameraContainerViewBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var cameraPreviewFrameColor: GiniCaptureSDK.GiniColor
+  @objc final public var cameraButtonsViewBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var fileImportSupportedTypes: GiniCaptureSDK.GiniConfiguration.GiniCaptureImportFileTypes
+  @objc final public var fileImportToolTipBackgroundColor: UIKit.UIColor
+  @objc final public var fileImportToolTipTextColor: UIKit.UIColor
+  @objc final public var fileImportToolTipCloseButtonColor: UIKit.UIColor
+  final public var toolTipOpaqueBackgroundStyle: GiniCaptureSDK.OpaqueViewStyle {
+    get
+    set
+  }
+  @objc final public var galleryPickerItemSelectedBackgroundCheckColor: UIKit.UIColor
+  @objc final public var galleryScreenBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var flashToggleEnabled: Swift.Bool
+  @objc final public var flashOnByDefault: Swift.Bool
+  @objc final public var imagesStackIndicatorLabelTextcolor: UIKit.UIColor
+  @objc final public var navigationBarCameraTitleCloseButton: Swift.String
+  @objc final public var navigationBarCameraTitleHelpButton: Swift.String
+  @objc final public var qrCodePopupButtonColor: UIKit.UIColor
+  @objc final public var qrCodePopupTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var qrCodePopupBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var unsupportedQrCodePopupButtonColor: UIKit.UIColor
+  @objc final public var unsupportedQrCodePopupTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var unsupportedQrCodePopupBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var navigationBarOnboardingTitleContinueButton: Swift.String
+  @objc final public var onboardingPageIndicatorColor: GiniCaptureSDK.GiniColor
+  @objc final public var onboardingCurrentPageIndicatorColor: GiniCaptureSDK.GiniColor
+  @objc final public var onboardingCurrentPageIndicatorAlpha: CoreFoundation.CGFloat
+  @objc final public var onboardingShowAtLaunch: Swift.Bool
+  @objc final public var onboardingShowAtFirstLaunch: Swift.Bool
+  @objc final public var onboardingTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var onboardingScreenBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var onboardingPages: [UIKit.UIView] {
+    @objc get
+    @objc set
+  }
+  @objc final public var navigationBarReviewTitleBackButton: Swift.String
+  @objc final public var navigationBarReviewTitleCloseButton: Swift.String
+  @objc final public var navigationBarReviewTitleContinueButton: Swift.String
+  @objc final public var reviewBottomViewBackgroundColor: UIKit.UIColor
+  @objc final public var reviewTextBottomFont: UIKit.UIFont
+  @objc final public var reviewTextBottomColor: UIKit.UIColor
+  @objc final public var multipagePagesContainerAndToolBarColor: GiniCaptureSDK.GiniColor
+  @objc final public var indicatorCircleColor: GiniCaptureSDK.GiniColor
+  @objc final public var multipageToolbarItemsColor: UIKit.UIColor
+  @objc final public var multipagePageIndicatorColor: UIKit.UIColor
+  @objc final public var multipagePageSelectedIndicatorColor: UIKit.UIColor
+  @objc final public var multipagePageBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var multipageDraggableIconColor: UIKit.UIColor
+  final public var multipageToolTipOpaqueBackgroundStyle: GiniCaptureSDK.OpaqueViewStyle
+  final public var multipagePageSuccessfullUploadIconBackgroundColor: UIKit.UIColor
+  final public var multipagePageFailureUploadIconBackgroundColor: UIKit.UIColor
+  @objc final public var analysisLoadingIndicatorColor: UIKit.UIColor
+  @objc final public var analysisPDFInformationBackgroundColor: UIKit.UIColor
+  @objc final public var analysisPDFInformationTextColor: UIKit.UIColor
+  @objc final public var navigationBarAnalysisTitleBackButton: Swift.String
+  @objc final public var helpScreenBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var helpScreenCellsBackgroundColor: GiniCaptureSDK.GiniColor
+  @objc final public var navigationBarHelpMenuTitleBackToCameraButton: Swift.String
+  @objc final public var navigationBarHelpScreenTitleBackToMenuButton: Swift.String
+  @objc final public var shouldShowSupportedFormatsScreen: Swift.Bool
+  @objc final public var nonSupportedFormatsIconColor: UIKit.UIColor
+  @objc final public var supportedFormatsIconColor: UIKit.UIColor
+  @objc final public var openWithAppNameForTexts: Swift.String
+  @objc final public var stepIndicatorColor: UIKit.UIColor
+  @objc final public var noResultsBottomButtonColor: UIKit.UIColor
+  @objc final public var noResultsBottomButtonTextColor: GiniCaptureSDK.GiniColor
+  @objc final public var noResultsBottomButtonCornerRadius: CoreFoundation.CGFloat
+  @objc final public var noResultsWarningContainerIconColor: UIKit.UIColor
+  @objc final public var shouldShowDragAndDropTutorial: Swift.Bool
+  @objc final public var albumsScreenSelectMorePhotosTextColor: GiniCaptureSDK.GiniColor
+  final public var customMenuItems: [GiniCaptureSDK.HelpMenuViewController.Item]
+  @objc final public var giniErrorLoggerIsOn: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  final public var customGiniErrorLoggerDelegate: GiniCaptureSDK.GiniCaptureErrorLoggerDelegate? {
+    get
+    set
+  }
+  final public var localizedStringsTableName: Swift.String?
+  @objc final public var closeButtonResource: GiniCaptureSDK.PreferredButtonResource?
+  @objc final public var helpButtonResource: GiniCaptureSDK.PreferredButtonResource?
+  @objc final public var backToCameraButtonResource: GiniCaptureSDK.PreferredButtonResource?
+  @objc final public var backToMenuButtonResource: GiniCaptureSDK.PreferredButtonResource?
+  @objc final public var nextButtonResource: GiniCaptureSDK.PreferredButtonResource?
+  @objc final public var cancelButtonResource: GiniCaptureSDK.PreferredButtonResource?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class GiniCaptureDocumentValidator {
+  public static var maxPagesCount: Swift.Int {
+    get
+  }
+  final public class func validate(_ document: GiniCaptureSDK.GiniCaptureDocument, withConfig giniConfiguration: GiniCaptureSDK.GiniConfiguration) throws
+  @objc deinit
+}
+public func giniCaptureBundle() -> Foundation.Bundle
+public func UIImageNamedPreferred(named name: Swift.String) -> UIKit.UIImage?
+public func NSLocalizedStringPreferredFormat(_ key: Swift.String, fallbackKey: Swift.String = "", comment: Swift.String, isCustomizable: Swift.Bool = true) -> Swift.String
+@_hasMissingDesignatedInitializers public class Constraints {
+  public class func active(item view1: Any!, attr attr1: UIKit.NSLayoutConstraint.Attribute, relatedBy relation: UIKit.NSLayoutConstraint.Relation, to view2: Any?, attr attr2: UIKit.NSLayoutConstraint.Attribute, multiplier: CoreFoundation.CGFloat = 1.0, constant: CoreFoundation.CGFloat = 0, priority: Swift.Float = 1000, identifier: Swift.String? = nil)
+  @objc deinit
+}
+public struct Colors {
+  public struct Gini {
+    public static var blue: UIKit.UIColor
+    public static var bluishGreen: UIKit.UIColor
+    public static var crimson: UIKit.UIColor
+    public static var lightBlue: UIKit.UIColor
+    public static var grey: UIKit.UIColor
+    public static var raspberry: UIKit.UIColor
+    public static var rose: UIKit.UIColor
+    public static var pearl: UIKit.UIColor
+    @available(iOS 13.0, *)
+    public static var dynamicPearl: UIKit.UIColor
+    public static var paleGreen: UIKit.UIColor
+    public static var springGreen: UIKit.UIColor
+    public static var veryLightGray: UIKit.UIColor
+    @available(iOS 13.0, *)
+    public static var dynamicVeryLightGray: UIKit.UIColor
+    @available(iOS 13.0, *)
+    public static var shadowColor: UIKit.UIColor
+  }
+}
+@objc public enum DocumentImportMethod : Swift.Int, Swift.RawRepresentable {
+  case openWith
+  case picker
+  public typealias RawValue = Swift.String
+  public init?(rawValue: GiniCaptureSDK.DocumentImportMethod.RawValue)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum DocumentSource : Swift.Equatable {
+  case camera
+  case external
+  case appName(name: Swift.String?)
+  public static func == (lhs: GiniCaptureSDK.DocumentSource, rhs: GiniCaptureSDK.DocumentSource) -> Swift.Bool
+}
+public typealias LocalizationEntry = (value: Swift.String, description: Swift.String)
+public protocol LocalizableStringResource {
+  var tableName: Swift.String { get }
+  var tableEntry: GiniCaptureSDK.LocalizationEntry { get }
+  var fallbackTableEntry: Swift.String { get }
+  var isCustomizable: Swift.Bool { get }
+}
+extension GiniCaptureSDK.LocalizableStringResource {
+  public var localizedFormat: Swift.String {
+    get
+  }
+}
+public enum AnalysisStrings : GiniCaptureSDK.LocalizableStringResource {
+  case analysisErrorMessage, documentCreationErrorMessage, cancelledMessage, loadingText, pdfPages, suggestion1Text, suggestion2Text, suggestion3Text, suggestion4Text, suggestion5Text, suggestionHeader, defaultPdfDokumentTitle
+  public var tableName: Swift.String {
+    get
+  }
+  public var tableEntry: GiniCaptureSDK.LocalizationEntry {
+    get
+  }
+  public var isCustomizable: Swift.Bool {
+    get
+  }
+  public var fallbackTableEntry: Swift.String {
+    get
+  }
+  public static func == (a: GiniCaptureSDK.AnalysisStrings, b: GiniCaptureSDK.AnalysisStrings) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum ImageAnalysisNoResultsStrings : GiniCaptureSDK.LocalizableStringResource {
+  case collectionHeaderText, goToCameraButton, titleText, warningText, warningHelpMenuText
+  public var tableName: Swift.String {
+    get
+  }
+  public var tableEntry: GiniCaptureSDK.LocalizationEntry {
+    get
+  }
+  public var isCustomizable: Swift.Bool {
+    get
+  }
+  public var fallbackTableEntry: Swift.String {
+    get
+  }
+  public static func == (a: GiniCaptureSDK.ImageAnalysisNoResultsStrings, b: GiniCaptureSDK.ImageAnalysisNoResultsStrings) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum ImageAssetsStrings : GiniCaptureSDK.LocalizableStringResource {
+  case openWithTutorialStep1, openWithTutorialStep2, openWithTutorialStep3
+  public var tableName: Swift.String {
+    get
+  }
+  public var tableEntry: GiniCaptureSDK.LocalizationEntry {
+    get
+  }
+  public var isCustomizable: Swift.Bool {
+    get
+  }
+  public var fallbackTableEntry: Swift.String {
+    get
+  }
+  public static func == (a: GiniCaptureSDK.ImageAssetsStrings, b: GiniCaptureSDK.ImageAssetsStrings) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum OnboardingStrings : GiniCaptureSDK.LocalizableStringResource {
+  case onboardingFirstPageText, onboardingSecondPageText, onboardingThirdPageText, onboardingFourthPageText, onboardingFifthPageText
+  public var tableName: Swift.String {
+    get
+  }
+  public var tableEntry: GiniCaptureSDK.LocalizationEntry {
+    get
+  }
+  public var isCustomizable: Swift.Bool {
+    get
+  }
+  public var fallbackTableEntry: Swift.String {
+    get
+  }
+  public static func == (a: GiniCaptureSDK.OnboardingStrings, b: GiniCaptureSDK.OnboardingStrings) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol PreferredButtonResource {
+  @objc var preferredImage: UIKit.UIImage? { get }
+  @objc var preferredText: Swift.String? { get }
+}
+public enum QRCodesFormat {
+  case epc06912
+  case eps4mobile
+  case bezahl
+  public static func == (a: GiniCaptureSDK.QRCodesFormat, b: GiniCaptureSDK.QRCodesFormat) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers final public class QRCodesExtractor {
+  public static let epsCodeUrlKey: Swift.String
+  @objc deinit
+}
+@objc public protocol GiniLogger {
+  @objc func log(message: Swift.String)
+}
+@_hasMissingDesignatedInitializers final public class DefaultLogger : GiniCaptureSDK.GiniLogger {
+  @objc final public func log(message: Swift.String)
+  @objc deinit
+}
+public struct ErrorLog {
+  public var deviceModel: Swift.String
+  public var osName: Swift.String
+  public var osVersion: Swift.String
+  public var captureVersion: Swift.String
+  public var description: Swift.String
+  public var error: Swift.Error?
+}
+@_hasMissingDesignatedInitializers public class GiniCaptureErrorLogger : GiniCaptureSDK.GiniCaptureErrorLoggerDelegate {
+  public func handleErrorLog(error: GiniCaptureSDK.ErrorLog)
+  @objc deinit
+}
+public protocol GiniCaptureErrorLoggerDelegate : AnyObject {
+  func handleErrorLog(error: GiniCaptureSDK.ErrorLog)
+}
+@objc public protocol GiniCaptureDocument {
+  @objc var type: GiniCaptureSDK.GiniCaptureDocumentType { get }
+  @objc var data: Foundation.Data { get }
+  @objc var id: Swift.String { get }
+  @objc var previewImage: UIKit.UIImage? { get }
+  @objc var isReviewable: Swift.Bool { get }
+  @objc var isImported: Swift.Bool { get }
+}
+@objc public enum GiniCaptureDocumentType : Swift.Int {
+  case pdf = 0
+  case image = 1
+  case qrcode = 2
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class GiniCaptureDocumentBuilder : ObjectiveC.NSObject {
+  public var deviceOrientation: UIKit.UIInterfaceOrientation?
+  public var importMethod: GiniCaptureSDK.DocumentImportMethod
+  public init(documentSource: GiniCaptureSDK.DocumentSource)
+  public func build(with data: Foundation.Data) -> GiniCaptureSDK.GiniCaptureDocument?
+  public func build(with openURL: Foundation.URL, completion: @escaping (GiniCaptureSDK.GiniCaptureDocument?) -> Swift.Void)
+  @objc deinit
+}
+@objc public class GiniCaptureFont : ObjectiveC.NSObject {
+  public var regular: UIKit.UIFont
+  public var bold: UIKit.UIFont
+  public var light: UIKit.UIFont
+  public var thin: UIKit.UIFont
+  public var isEnabled: Swift.Bool {
+    get
+  }
+  public init(regular: UIKit.UIFont, bold: UIKit.UIFont, light: UIKit.UIFont, thin: UIKit.UIFont, isEnabled: Swift.Bool = true)
+  public func with(weight: UIKit.UIFont.Weight, size: CoreFoundation.CGFloat, style: UIKit.UIFont.TextStyle) -> UIKit.UIFont
+  @objc deinit
+}
+public struct GiniCapturePage : GiniCaptureSDK.Diffable {
+  public var document: GiniCaptureSDK.GiniCaptureDocument
+  public var error: Swift.Error?
+  public var isUploaded: Swift.Bool
+  public var primaryKey: Swift.String {
+    get
+  }
+  public init(document: GiniCaptureSDK.GiniCaptureDocument, error: Swift.Error? = nil, isUploaded: Swift.Bool = false)
+  public func isUpdated(to element: GiniCaptureSDK.GiniCapturePage) -> Swift.Bool
+}
+public protocol GiniCaptureError : Swift.Error {
+  var message: Swift.String { get }
+}
+@objc public enum CameraError : Swift.Int, GiniCaptureSDK.GiniCaptureError {
+  case unknown
+  case notAuthorizedToUseDevice
+  case noInputDevice
+  case captureFailed
+  public var message: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public static var _nsErrorDomain: Swift.String {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum ReviewError : Swift.Int, GiniCaptureSDK.GiniCaptureError {
+  case unknown
+  public var message: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public static var _nsErrorDomain: Swift.String {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum FilePickerError : Swift.Int, GiniCaptureSDK.GiniCaptureError {
+  case photoLibraryAccessDenied
+  case maxFilesPickedCountExceeded
+  case mixedDocumentsUnsupported
+  case failedToOpenDocument
+  public var message: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public static var _nsErrorDomain: Swift.String {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum AnalysisError : Swift.Int, GiniCaptureSDK.GiniCaptureError {
+  case cancelled
+  case documentCreation
+  case unknown
+  public var message: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public static var _nsErrorDomain: Swift.String {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum DocumentValidationError : Swift.Int, GiniCaptureSDK.GiniCaptureError, Swift.Equatable {
+  case unknown
+  case exceededMaxFileSize
+  case imageFormatNotValid
+  case fileFormatNotValid
+  case pdfPageLengthExceeded
+  case qrCodeFormatNotValid
+  public var message: Swift.String {
+    get
+  }
+  public static func == (lhs: GiniCaptureSDK.DocumentValidationError, rhs: GiniCaptureSDK.DocumentValidationError) -> Swift.Bool
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public static var _nsErrorDomain: Swift.String {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class CustomDocumentValidationError : Foundation.NSError {
+  convenience public init(message: Swift.String)
+  public var message: Swift.String {
+    get
+  }
+  @objc override dynamic public init(domain: Swift.String, code: Swift.Int, userInfo dict: [Swift.String : Any]? = nil)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class CustomDocumentValidationResult : ObjectiveC.NSObject {
+  public class func success() -> GiniCaptureSDK.CustomDocumentValidationResult
+  public class func failure(withError error: GiniCaptureSDK.CustomDocumentValidationError) -> GiniCaptureSDK.CustomDocumentValidationResult
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers final public class GiniImageDocument : ObjectiveC.NSObject, GiniCaptureSDK.GiniCaptureDocument {
+  @objc final public var type: GiniCaptureSDK.GiniCaptureDocumentType
+  @objc final public var id: Swift.String
+  @objc final public var data: Foundation.Data
+  @objc final public var previewImage: UIKit.UIImage?
+  @objc final public var isReviewable: Swift.Bool
+  @objc final public var isImported: Swift.Bool
+  final public var rotationDelta: Swift.Int {
+    get
+  }
+  @objc deinit
+}
+extension GiniCaptureSDK.GiniImageDocument : Foundation.NSItemProviderReading {
+  @objc public static var readableTypeIdentifiersForItemProvider: [Swift.String] {
+    @objc get
+  }
+  @objc public static func object(withItemProviderData data: Foundation.Data, typeIdentifier: Swift.String) throws -> Self
+}
+@objc @_hasMissingDesignatedInitializers final public class GiniPDFDocument : ObjectiveC.NSObject, GiniCaptureSDK.GiniCaptureDocument {
+  @objc final public var type: GiniCaptureSDK.GiniCaptureDocumentType
+  @objc final public var id: Swift.String
+  @objc final public let data: Foundation.Data
+  @objc final public var previewImage: UIKit.UIImage?
+  @objc final public var isReviewable: Swift.Bool
+  @objc final public var isImported: Swift.Bool
+  @objc deinit
+}
+extension GiniCaptureSDK.GiniPDFDocument : Foundation.NSItemProviderReading {
+  @objc public static var readableTypeIdentifiersForItemProvider: [Swift.String] {
+    @objc get
+  }
+  @objc public static func object(withItemProviderData data: Foundation.Data, typeIdentifier: Swift.String) throws -> Self
+}
+@_hasMissingDesignatedInitializers @objc final public class GiniQRCodeDocument : ObjectiveC.NSObject, GiniCaptureSDK.GiniCaptureDocument {
+  @objc final public var type: GiniCaptureSDK.GiniCaptureDocumentType
+  @objc final public var data: Foundation.Data {
+    @objc get
+    @objc set
+  }
+  @objc final public var id: Swift.String
+  @objc final public var previewImage: UIKit.UIImage? {
+    @objc get
+    @objc set
+  }
+  @objc final public var isReviewable: Swift.Bool
+  @objc final public var isImported: Swift.Bool
+  final public var extractedParameters: [Swift.String : Swift.String] {
+    get
+    set
+  }
+  final public var qrCodeFormat: GiniCaptureSDK.QRCodesFormat? {
+    get
+    set
+  }
+  @objc deinit
+}
+extension GiniCaptureSDK.GiniQRCodeDocument {
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+}
+@objc public protocol AnalysisDelegate {
+  @objc func displayError(withMessage message: Swift.String?, andAction action: (() -> Swift.Void)?)
+  @objc func tryDisplayNoResultsScreen() -> Swift.Bool
+}
+@objc @objcMembers @_Concurrency.MainActor(unsafe) final public class AnalysisViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) weak final public var trackingDelegate: GiniCaptureSDK.AnalysisScreenTrackingDelegate?
+  @objc @_Concurrency.MainActor(unsafe) public init(document: GiniCaptureSDK.GiniCaptureDocument, giniConfiguration: GiniCaptureSDK.GiniConfiguration)
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(document: GiniCaptureSDK.GiniCaptureDocument)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override final public func loadView()
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidAppear(_ animated: Swift.Bool)
+  @objc @_Concurrency.MainActor(unsafe) final public func showAnimation()
+  @objc @_Concurrency.MainActor(unsafe) final public func hideAnimation()
+  @objc @_Concurrency.MainActor(unsafe) final public func showError(with message: Swift.String, action: @escaping () -> Swift.Void)
+  @objc @_Concurrency.MainActor(unsafe) final public func hideError(animated: Swift.Bool = false)
+  @objc deinit
+}
+@objc public protocol CameraViewControllerDelegate {
+  @objc func camera(_ viewController: GiniCaptureSDK.CameraViewController, didCapture document: GiniCaptureSDK.GiniCaptureDocument)
+  @objc func camera(_ viewController: GiniCaptureSDK.CameraViewController, didSelect documentPicker: GiniCaptureSDK.DocumentPickerType)
+  @objc func cameraDidAppear(_ viewController: GiniCaptureSDK.CameraViewController)
+  @objc func cameraDidTapMultipageReviewButton(_ viewController: GiniCaptureSDK.CameraViewController)
+}
+@objc @objcMembers @_Concurrency.MainActor(unsafe) final public class CameraViewController : UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) weak final public var delegate: GiniCaptureSDK.CameraViewControllerDelegate?
+  @_Concurrency.MainActor(unsafe) weak final public var trackingDelegate: GiniCaptureSDK.CameraScreenTrackingDelegate?
+  @objc @_Concurrency.MainActor(unsafe) public init(giniConfiguration: GiniCaptureSDK.GiniConfiguration)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override final public func loadView()
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLayoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewWillTransition(to size: CoreFoundation.CGSize, with coordinator: UIKit.UIViewControllerTransitionCoordinator)
+  @objc @_Concurrency.MainActor(unsafe) final public func setupCamera()
+  @objc deinit
+}
+extension GiniCaptureSDK.CameraViewController {
+  @objc @_Concurrency.MainActor(unsafe) final public func showCaptureButton()
+  @objc @_Concurrency.MainActor(unsafe) final public func hideCaptureButton()
+  @objc @_Concurrency.MainActor(unsafe) final public func showCameraOverlay()
+  @objc @_Concurrency.MainActor(unsafe) final public func hideCameraOverlay()
+  @objc @_Concurrency.MainActor(unsafe) final public func showFileImportTip()
+  @objc @_Concurrency.MainActor(unsafe) final public func hideFileImportTip()
+  @objc @_Concurrency.MainActor(unsafe) final public func showQrCodeTip()
+  @objc @_Concurrency.MainActor(unsafe) final public func hideQrCodeTip()
+}
+extension GiniCaptureSDK.CameraViewController {
+  @objc @_Concurrency.MainActor(unsafe) final public func animateToControlsView(imageDocument: GiniCaptureSDK.GiniImageDocument, completion: (() -> Swift.Void)? = nil)
+  @objc @_Concurrency.MainActor(unsafe) final public func replaceCapturedStackImages(with images: [UIKit.UIImage])
+}
+extension GiniCaptureSDK.CameraViewController {
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+}
+public protocol DocumentPickerCoordinatorDelegate : AnyObject {
+  func documentPicker(_ coordinator: GiniCaptureSDK.DocumentPickerCoordinator, didPick documents: [GiniCaptureSDK.GiniCaptureDocument])
+  func documentPicker(_ coordinator: GiniCaptureSDK.DocumentPickerCoordinator, failedToPickDocumentsAt urls: [Foundation.URL])
+}
+@objc public enum DocumentPickerType : Swift.Int {
+  case gallery
+  case explorer
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc final public class DocumentPickerCoordinator : ObjectiveC.NSObject {
+  weak final public var delegate: GiniCaptureSDK.DocumentPickerCoordinatorDelegate?
+  final public var isPDFSelectionAllowed: Swift.Bool
+  final public var currentPickerDismissesAutomatically: Swift.Bool {
+    get
+  }
+  final public var currentPickerViewController: UIKit.UIViewController? {
+    get
+  }
+  final public var isGalleryPermissionGranted: Swift.Bool {
+    get
+  }
+  public init(giniConfiguration: GiniCaptureSDK.GiniConfiguration)
+  final public func startCaching()
+  final public func setupDragAndDrop(in view: UIKit.UIView)
+  final public func showGalleryPicker(from viewController: UIKit.UIViewController)
+  final public func showDocumentPicker(from viewController: UIKit.UIViewController, device: UIKit.UIDevice = UIDevice.current)
+  final public func dismissCurrentPicker(completion: @escaping () -> Swift.Void)
+  @objc deinit
+}
+extension GiniCaptureSDK.DocumentPickerCoordinator : UIKit.UIDocumentPickerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func documentPicker(_ controller: UIKit.UIDocumentPickerViewController, didPickDocumentsAt urls: [Foundation.URL])
+  @_Concurrency.MainActor(unsafe) @objc final public func documentPicker(_ controller: UIKit.UIDocumentPickerViewController, didPickDocumentAt url: Foundation.URL)
+  @_Concurrency.MainActor(unsafe) @objc final public func documentPickerWasCancelled(_ controller: UIKit.UIDocumentPickerViewController)
+}
+extension GiniCaptureSDK.DocumentPickerCoordinator : UIKit.UIDropInteractionDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, canHandle session: UIKit.UIDropSession) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, sessionDidUpdate session: UIKit.UIDropSession) -> UIKit.UIDropProposal
+  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, performDrop session: UIKit.UIDropSession)
+}
+public protocol HelpMenuViewControllerDelegate : AnyObject {
+  func help(_ menuViewController: GiniCaptureSDK.HelpMenuViewController, didSelect item: GiniCaptureSDK.HelpMenuViewController.Item)
+}
+@objc @_Concurrency.MainActor(unsafe) final public class HelpMenuViewController : UIKit.UITableViewController {
+  @_Concurrency.MainActor(unsafe) weak final public var delegate: GiniCaptureSDK.HelpMenuViewControllerDelegate?
+  public enum Item {
+    case noResultsTips
+    case openWithTutorial
+    case supportedFormats
+    case custom(Swift.String, UIKit.UIViewController)
+  }
+  @_Concurrency.MainActor(unsafe) public init(giniConfiguration: GiniCaptureSDK.GiniConfiguration)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
+  @objc deinit
+}
+extension GiniCaptureSDK.HelpMenuViewController {
+  @_Concurrency.MainActor(unsafe) @objc override final public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc override final public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc override final public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) @objc override final public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ImageAnalysisNoResultsViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) final public var didTapBottomButton: () -> Swift.Void
+  @_Concurrency.MainActor(unsafe) convenience public init(title: Swift.String? = nil, subHeaderText: Swift.String? = NSLocalizedStringPreferredFormat("ginicapture.noresults.collection.header", comment: "no results suggestions collection header title"), topViewText: Swift.String = NSLocalizedStringPreferredFormat("ginicapture.noresults.warning", comment: "Warning text that indicates that there " +
+                                "was any result for this photo analysis"), topViewIcon: UIKit.UIImage? = UIImageNamedPreferred(named: "warningNoResults"), bottomButtonText: Swift.String? = NSLocalizedStringPreferredFormat("ginicapture.noresults.gotocamera", comment: "bottom button title (go to camera button)"), bottomButtonIcon: UIKit.UIImage? = UIImageNamedPreferred(named: "cameraIcon"))
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override final public func loadView()
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewWillTransition(to size: CoreFoundation.CGSize, with coordinator: UIKit.UIViewControllerTransitionCoordinator)
+  @objc deinit
+}
+extension GiniCaptureSDK.ImageAnalysisNoResultsViewController : UIKit.UICollectionViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @_Concurrency.MainActor(unsafe) @objc final public func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
+}
+extension GiniCaptureSDK.ImageAnalysisNoResultsViewController : UIKit.UICollectionViewDelegateFlowLayout {
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, referenceSizeForHeaderInSection section: Swift.Int) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, viewForSupplementaryElementOfKind kind: Swift.String, at indexPath: Foundation.IndexPath) -> UIKit.UICollectionReusableView
+}
+public protocol MultipageReviewViewControllerDelegate : AnyObject {
+  func multipageReview(_ viewController: GiniCaptureSDK.MultipageReviewViewController, didReorder pages: [GiniCaptureSDK.GiniCapturePage])
+  func multipageReview(_ viewController: GiniCaptureSDK.MultipageReviewViewController, didRotate page: GiniCaptureSDK.GiniCapturePage)
+  func multipageReview(_ viewController: GiniCaptureSDK.MultipageReviewViewController, didDelete page: GiniCaptureSDK.GiniCapturePage)
+  func multipageReview(_ viewController: GiniCaptureSDK.MultipageReviewViewController, didTapRetryUploadFor page: GiniCaptureSDK.GiniCapturePage)
+  func multipageReviewDidTapAddImage(_ viewController: GiniCaptureSDK.MultipageReviewViewController)
+}
+@objc @_Concurrency.MainActor(unsafe) final public class MultipageReviewViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) weak final public var delegate: GiniCaptureSDK.MultipageReviewViewControllerDelegate?
+  @_Concurrency.MainActor(unsafe) public init(pages: [GiniCaptureSDK.GiniCapturePage], giniConfiguration: GiniCaptureSDK.GiniConfiguration)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+extension GiniCaptureSDK.MultipageReviewViewController {
+  @_Concurrency.MainActor(unsafe) @objc override final public func loadView()
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLayoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewWillTransition(to size: CoreFoundation.CGSize, with coordinator: UIKit.UIViewControllerTransitionCoordinator)
+  @_Concurrency.MainActor(unsafe) final public func updateCollections(with pages: [GiniCaptureSDK.GiniCapturePage], animated: Swift.Bool = false)
+}
+extension GiniCaptureSDK.MultipageReviewViewController : UIKit.UICollectionViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, viewForSupplementaryElementOfKind kind: Swift.String, at indexPath: Foundation.IndexPath) -> UIKit.UICollectionReusableView
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, moveItemAt sourceIndexPath: Foundation.IndexPath, to destinationIndexPath: Foundation.IndexPath)
+}
+extension GiniCaptureSDK.MultipageReviewViewController : UIKit.UICollectionViewDelegateFlowLayout {
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, referenceSizeForFooterInSection section: Swift.Int) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, insetForSectionAt section: Swift.Int) -> UIKit.UIEdgeInsets
+  @_Concurrency.MainActor(unsafe) @objc final public func scrollViewDidEndDecelerating(_ scrollView: UIKit.UIScrollView)
+}
+@objc @objcMembers @_Concurrency.MainActor(unsafe) final public class OnboardingPage : UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) public init(image: UIKit.UIImage, text: Swift.String, rotateImageInLandscape: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) convenience public init?(imageNamed imageName: Swift.String, text: Swift.String, rotateImageInLandscape: Swift.Bool = false)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
+  @objc deinit
+}
+@objc @objcMembers @_Concurrency.MainActor(unsafe) final public class OnboardingViewController : UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) final public var pages: [UIKit.UIView]
+  @objc @_Concurrency.MainActor(unsafe) final public var scrollView: UIKit.UIScrollView {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public init(pages: [UIKit.UIView], scrollViewDelegate: UIKit.UIScrollViewDelegate?)
+  @objc @_Concurrency.MainActor(unsafe) convenience public init(scrollViewDelegate: UIKit.UIScrollViewDelegate?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override final public func loadView()
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewWillLayoutSubviews()
+  @objc @_Concurrency.MainActor(unsafe) final public func scrollToNextPage(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) final public func nextPageOffset() -> CoreFoundation.CGPoint?
+  @objc @_Concurrency.MainActor(unsafe) final public func centerTo(page: Swift.Int)
+  @objc deinit
+}
+@objc public protocol ReviewViewControllerDelegate {
+  @objc func review(_ viewController: GiniCaptureSDK.ReviewViewController, didReview document: GiniCaptureSDK.GiniCaptureDocument)
+}
+@objc @objcMembers @_Concurrency.MainActor(unsafe) final public class ReviewViewController : UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) weak final public var delegate: GiniCaptureSDK.ReviewViewControllerDelegate?
+  @objc @_Concurrency.MainActor(unsafe) public init(document: GiniCaptureSDK.GiniCaptureDocument, giniConfiguration: GiniCaptureSDK.GiniConfiguration)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override final public func loadView()
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLayoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidAppear(_ animated: Swift.Bool)
+  @objc deinit
+}
+extension GiniCaptureSDK.ReviewViewController : UIKit.UIScrollViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func viewForZooming(in scrollView: UIKit.UIScrollView) -> UIKit.UIView?
+  @_Concurrency.MainActor(unsafe) @objc final public func scrollViewDidZoom(_ scrollView: UIKit.UIScrollView)
+}
+extension GiniCaptureSDK.GiniScreenAPICoordinator : GiniCaptureSDK.AnalysisDelegate {
+  @objc dynamic public func displayError(withMessage message: Swift.String?, andAction action: (() -> Swift.Void)?)
+  @objc dynamic public func tryDisplayNoResultsScreen() -> Swift.Bool
+}
+@objc public protocol UploadDelegate {
+  @objc func uploadDidFail(for document: GiniCaptureSDK.GiniCaptureDocument, with error: Swift.Error)
+  @objc func uploadDidComplete(for document: GiniCaptureSDK.GiniCaptureDocument)
+}
+extension GiniCaptureSDK.GiniScreenAPICoordinator : GiniCaptureSDK.CameraViewControllerDelegate {
+  @objc dynamic public func camera(_ viewController: GiniCaptureSDK.CameraViewController, didCapture document: GiniCaptureSDK.GiniCaptureDocument)
+  @objc dynamic public func camera(_ viewController: GiniCaptureSDK.CameraViewController, didSelect documentPicker: GiniCaptureSDK.DocumentPickerType)
+  @objc dynamic public func cameraDidAppear(_ viewController: GiniCaptureSDK.CameraViewController)
+  @objc dynamic public func cameraDidTapMultipageReviewButton(_ viewController: GiniCaptureSDK.CameraViewController)
+}
+extension GiniCaptureSDK.GiniScreenAPICoordinator : GiniCaptureSDK.DocumentPickerCoordinatorDelegate {
+  public func documentPicker(_ coordinator: GiniCaptureSDK.DocumentPickerCoordinator, didPick documents: [GiniCaptureSDK.GiniCaptureDocument])
+  public func documentPicker(_ coordinator: GiniCaptureSDK.DocumentPickerCoordinator, failedToPickDocumentsAt urls: [Foundation.URL])
+}
+extension GiniCaptureSDK.GiniScreenAPICoordinator : GiniCaptureSDK.UploadDelegate {
+  @objc dynamic public func uploadDidComplete(for document: GiniCaptureSDK.GiniCaptureDocument)
+  @objc dynamic public func uploadDidFail(for document: GiniCaptureSDK.GiniCaptureDocument, with error: Swift.Error)
+}
+extension GiniCaptureSDK.GiniScreenAPICoordinator : GiniCaptureSDK.ReviewViewControllerDelegate {
+  @objc dynamic public func review(_ viewController: GiniCaptureSDK.ReviewViewController, didReview document: GiniCaptureSDK.GiniCaptureDocument)
+}
+extension GiniCaptureSDK.GiniScreenAPICoordinator : GiniCaptureSDK.MultipageReviewViewControllerDelegate {
+  public func multipageReview(_ controller: GiniCaptureSDK.MultipageReviewViewController, didRotate page: GiniCaptureSDK.GiniCapturePage)
+  public func multipageReview(_ controller: GiniCaptureSDK.MultipageReviewViewController, didDelete page: GiniCaptureSDK.GiniCapturePage)
+  public func multipageReview(_ controller: GiniCaptureSDK.MultipageReviewViewController, didReorder pages: [GiniCaptureSDK.GiniCapturePage])
+  public func multipageReview(_ viewController: GiniCaptureSDK.MultipageReviewViewController, didTapRetryUploadFor page: GiniCaptureSDK.GiniCapturePage)
+  public func multipageReviewDidTapAddImage(_ controller: GiniCaptureSDK.MultipageReviewViewController)
+}
+@objc open class GiniScreenAPICoordinator : ObjectiveC.NSObject {
+  public var screenAPINavigationController: UIKit.UINavigationController {
+    get
+    set
+  }
+  weak public var trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate?
+  public var giniConfiguration: GiniCaptureSDK.GiniConfiguration
+  public var pages: [GiniCaptureSDK.GiniCapturePage]
+  weak public var visionDelegate: GiniCaptureSDK.GiniCaptureDelegate?
+  public init(withDelegate delegate: GiniCaptureSDK.GiniCaptureDelegate?, giniConfiguration: GiniCaptureSDK.GiniConfiguration)
+  public func start(withDocuments documents: [GiniCaptureSDK.GiniCaptureDocument]?) -> UIKit.UIViewController
+  @objc deinit
+}
+extension GiniCaptureSDK.GiniScreenAPICoordinator : UIKit.UINavigationControllerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func navigationController(_ navigationController: UIKit.UINavigationController, animationControllerFor operation: UIKit.UINavigationController.Operation, from fromVC: UIKit.UIViewController, to toVC: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+}
+extension GiniCaptureSDK.GiniScreenAPICoordinator : GiniCaptureSDK.HelpMenuViewControllerDelegate {
+  public func help(_ menuViewController: GiniCaptureSDK.HelpMenuViewController, didSelect item: GiniCaptureSDK.HelpMenuViewController.Item)
+}
+public struct Event<T> where T : Swift.RawRepresentable, T.RawValue == Swift.String {
+  public let type: T
+  public let info: [Swift.String : Swift.String]?
+}
+public protocol GiniCaptureTrackingDelegate : GiniCaptureSDK.AnalysisScreenTrackingDelegate, GiniCaptureSDK.CameraScreenTrackingDelegate, GiniCaptureSDK.OnboardingScreenTrackingDelegate, GiniCaptureSDK.ReviewScreenTrackingDelegate {
+}
+public enum OnboardingScreenEventType : Swift.String {
+  case start
+  case finish
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol OnboardingScreenTrackingDelegate : AnyObject {
+  func onOnboardingScreenEvent(event: GiniCaptureSDK.Event<GiniCaptureSDK.OnboardingScreenEventType>)
+}
+public enum CameraScreenEventType : Swift.String {
+  case exit
+  case help
+  case takePicture
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol CameraScreenTrackingDelegate : AnyObject {
+  func onCameraScreenEvent(event: GiniCaptureSDK.Event<GiniCaptureSDK.CameraScreenEventType>)
+}
+public enum ReviewScreenEventType : Swift.String {
+  case back
+  case next
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol ReviewScreenTrackingDelegate : AnyObject {
+  func onReviewScreenEvent(event: GiniCaptureSDK.Event<GiniCaptureSDK.ReviewScreenEventType>)
+}
+public enum AnalysisScreenEventType : Swift.String {
+  case cancel
+  case error
+  case retry
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol AnalysisScreenTrackingDelegate : AnyObject {
+  func onAnalysisScreenEvent(event: GiniCaptureSDK.Event<GiniCaptureSDK.AnalysisScreenEventType>)
+}
+public let GiniCaptureSDKVersion: Swift.String
+@objc @objcMembers public class AnalysisResult : ObjectiveC.NSObject {
+  @objc final public let images: [UIKit.UIImage]
+  @objc final public let extractions: [Swift.String : GiniBankAPILibrary.Extraction]
+  @objc final public let lineItems: [[GiniBankAPILibrary.Extraction]]?
+  final public let document: GiniBankAPILibrary.Document?
+  @objc final public let candidates: [Swift.String : [GiniBankAPILibrary.Extraction.Candidate]]
+  public init(extractions: [Swift.String : GiniBankAPILibrary.Extraction], lineItems: [[GiniBankAPILibrary.Extraction]]? = nil, images: [UIKit.UIImage], document: GiniBankAPILibrary.Document? = nil, candidates: [Swift.String : [GiniBankAPILibrary.Extraction.Candidate]])
+  @objc deinit
+}
+final public class DocumentService : GiniCaptureSDK.DocumentServiceProtocol {
+  final public var document: GiniBankAPILibrary.Document?
+  final public var analysisCancellationToken: GiniBankAPILibrary.CancellationToken?
+  final public var metadata: GiniBankAPILibrary.Document.Metadata?
+  public init(lib: GiniBankAPILibrary.GiniBankAPI, metadata: GiniBankAPILibrary.Document.Metadata?)
+  public init(giniCaptureNetworkService: GiniCaptureSDK.GiniCaptureNetworkService, metadata: GiniBankAPILibrary.Document.Metadata?)
+  final public func upload(document: GiniCaptureSDK.GiniCaptureDocument, completion: GiniCaptureSDK.UploadDocumentCompletion?)
+  final public func startAnalysis(completion: @escaping GiniCaptureSDK.AnalysisCompletion)
+  final public func cancelAnalysis()
+  final public func remove(document: GiniCaptureSDK.GiniCaptureDocument)
+  final public func resetToInitialState()
+  final public func update(imageDocument: GiniCaptureSDK.GiniImageDocument)
+  final public func sendFeedback(with updatedExtractions: [GiniBankAPILibrary.Extraction], updatedCompoundExtractions: [Swift.String : [[GiniBankAPILibrary.Extraction]]]?)
+  final public func sortDocuments(withSameOrderAs documents: [GiniCaptureSDK.GiniCaptureDocument])
+  final public func log(errorEvent: GiniBankAPILibrary.ErrorEvent)
+  @objc deinit
+}
+public typealias UploadDocumentCompletion = (Swift.Result<GiniBankAPILibrary.Document, GiniBankAPILibrary.GiniError>) -> Swift.Void
+public typealias AnalysisCompletion = (Swift.Result<GiniBankAPILibrary.ExtractionResult, GiniBankAPILibrary.GiniError>) -> Swift.Void
+public protocol DocumentServiceProtocol : AnyObject {
+  var document: GiniBankAPILibrary.Document? { get set }
+  var metadata: GiniBankAPILibrary.Document.Metadata? { get }
+  var analysisCancellationToken: GiniBankAPILibrary.CancellationToken? { get set }
+  func cancelAnalysis()
+  func remove(document: GiniCaptureSDK.GiniCaptureDocument)
+  func resetToInitialState()
+  func sendFeedback(with updatedExtractions: [GiniBankAPILibrary.Extraction], updatedCompoundExtractions: [Swift.String : [[GiniBankAPILibrary.Extraction]]]?)
+  func startAnalysis(completion: @escaping GiniCaptureSDK.AnalysisCompletion)
+  func sortDocuments(withSameOrderAs documents: [GiniCaptureSDK.GiniCaptureDocument])
+  func upload(document: GiniCaptureSDK.GiniCaptureDocument, completion: GiniCaptureSDK.UploadDocumentCompletion?)
+  func update(imageDocument: GiniCaptureSDK.GiniImageDocument)
+  func log(errorEvent: GiniBankAPILibrary.ErrorEvent)
+}
+extension GiniCaptureSDK.GiniCapture {
+  final public class func viewController(withClient client: GiniBankAPILibrary.Client, importedDocuments: [GiniCaptureSDK.GiniCaptureDocument]? = nil, configuration: GiniCaptureSDK.GiniConfiguration, resultsDelegate: GiniCaptureSDK.GiniCaptureResultsDelegate, documentMetadata: GiniBankAPILibrary.Document.Metadata? = nil, api: GiniBankAPILibrary.APIDomain = .default, userApi: GiniBankAPILibrary.UserDomain = .default, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate? = nil) -> UIKit.UIViewController
+  final public class func viewController(importedDocuments: [GiniCaptureSDK.GiniCaptureDocument]? = nil, configuration: GiniCaptureSDK.GiniConfiguration, resultsDelegate: GiniCaptureSDK.GiniCaptureResultsDelegate, documentMetadata: GiniBankAPILibrary.Document.Metadata? = nil, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate? = nil, networkingService: GiniCaptureSDK.GiniCaptureNetworkService) -> UIKit.UIViewController
+  final public class func removeStoredCredentials(for client: GiniBankAPILibrary.Client) throws
+}
+public protocol GiniCaptureNetworkService : AnyObject {
+  func delete(document: GiniBankAPILibrary.Document, completion: @escaping (Swift.Result<Swift.String, GiniBankAPILibrary.GiniError>) -> Swift.Void)
+  func cleanup()
+  func analyse(partialDocuments: [GiniBankAPILibrary.PartialDocumentInfo], metadata: GiniBankAPILibrary.Document.Metadata?, cancellationToken: GiniBankAPILibrary.CancellationToken, completion: @escaping (Swift.Result<(document: GiniBankAPILibrary.Document, extractionResult: GiniBankAPILibrary.ExtractionResult), GiniBankAPILibrary.GiniError>) -> Swift.Void)
+  func upload(document: GiniCaptureSDK.GiniCaptureDocument, metadata: GiniBankAPILibrary.Document.Metadata?, completion: @escaping GiniCaptureSDK.UploadDocumentCompletion)
+  func sendFeedback(document: GiniBankAPILibrary.Document, updatedExtractions: [GiniBankAPILibrary.Extraction], updatedCompoundExtractions: [Swift.String : [[GiniBankAPILibrary.Extraction]]]?, completion: @escaping (Swift.Result<Swift.Void, GiniBankAPILibrary.GiniError>) -> Swift.Void)
+  func log(errorEvent: GiniBankAPILibrary.ErrorEvent, completion: @escaping (Swift.Result<Swift.Void, GiniBankAPILibrary.GiniError>) -> Swift.Void)
+}
+@objc public protocol GiniCaptureResultsDelegate {
+  @objc func giniCaptureAnalysisDidFinishWith(result: GiniCaptureSDK.AnalysisResult, sendFeedbackBlock: @escaping ([Swift.String : GiniBankAPILibrary.Extraction]) -> Swift.Void)
+  @objc func giniCaptureAnalysisDidFinishWithoutResults(_ showingNoResultsScreen: Swift.Bool)
+  @objc func giniCaptureDidCancelAnalysis()
+}
+@objc @_Concurrency.MainActor(unsafe) public class GiniNetworkingScreenAPICoordinator : GiniCaptureSDK.GiniScreenAPICoordinator {
+  @_Concurrency.MainActor(unsafe) weak public var resultsDelegate: GiniCaptureSDK.GiniCaptureResultsDelegate?
+  @_Concurrency.MainActor(unsafe) final public let documentService: GiniCaptureSDK.DocumentServiceProtocol
+  @_Concurrency.MainActor(unsafe) public init(client: GiniBankAPILibrary.Client, resultsDelegate: GiniCaptureSDK.GiniCaptureResultsDelegate, giniConfiguration: GiniCaptureSDK.GiniConfiguration, documentMetadata: GiniBankAPILibrary.Document.Metadata?, api: GiniBankAPILibrary.APIDomain, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate?, lib: GiniBankAPILibrary.GiniBankAPI)
+  @_Concurrency.MainActor(unsafe) public init(resultsDelegate: GiniCaptureSDK.GiniCaptureResultsDelegate, giniConfiguration: GiniCaptureSDK.GiniConfiguration, documentMetadata: GiniBankAPILibrary.Document.Metadata?, trackingDelegate: GiniCaptureSDK.GiniCaptureTrackingDelegate?, captureNetworkService: GiniCaptureSDK.GiniCaptureNetworkService)
+  @_Concurrency.MainActor(unsafe) public func deliver(result: GiniBankAPILibrary.ExtractionResult, and document: GiniBankAPILibrary.Document? = nil, to analysisDelegate: GiniCaptureSDK.AnalysisDelegate)
+  @objc deinit
+}
+extension GiniCaptureSDK.GiniNetworkingScreenAPICoordinator : GiniCaptureSDK.GiniCaptureDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didCancelCapturing()
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didCapture(document: GiniCaptureSDK.GiniCaptureDocument, networkDelegate: GiniCaptureSDK.GiniCaptureNetworkDelegate)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didReview(documents: [GiniCaptureSDK.GiniCaptureDocument], networkDelegate: GiniCaptureSDK.GiniCaptureNetworkDelegate)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didCancelReview(for document: GiniCaptureSDK.GiniCaptureDocument)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didCancelAnalysis()
+}
+extension GiniCaptureSDK.NoticeActionType : Swift.Equatable {}
+extension GiniCaptureSDK.NoticeActionType : Swift.Hashable {}
+extension GiniCaptureSDK.NoticeActionType : Swift.RawRepresentable {}
+extension GiniCaptureSDK.GiniConfiguration.GiniCaptureImportFileTypes : Swift.Equatable {}
+extension GiniCaptureSDK.GiniConfiguration.GiniCaptureImportFileTypes : Swift.Hashable {}
+extension GiniCaptureSDK.GiniConfiguration.GiniCaptureImportFileTypes : Swift.RawRepresentable {}
+extension GiniCaptureSDK.DocumentImportMethod : Swift.Equatable {}
+extension GiniCaptureSDK.DocumentImportMethod : Swift.Hashable {}
+extension GiniCaptureSDK.AnalysisStrings : Swift.Equatable {}
+extension GiniCaptureSDK.AnalysisStrings : Swift.Hashable {}
+extension GiniCaptureSDK.ImageAnalysisNoResultsStrings : Swift.Equatable {}
+extension GiniCaptureSDK.ImageAnalysisNoResultsStrings : Swift.Hashable {}
+extension GiniCaptureSDK.ImageAssetsStrings : Swift.Equatable {}
+extension GiniCaptureSDK.ImageAssetsStrings : Swift.Hashable {}
+extension GiniCaptureSDK.OnboardingStrings : Swift.Equatable {}
+extension GiniCaptureSDK.OnboardingStrings : Swift.Hashable {}
+extension GiniCaptureSDK.QRCodesFormat : Swift.Equatable {}
+extension GiniCaptureSDK.QRCodesFormat : Swift.Hashable {}
+extension GiniCaptureSDK.GiniCaptureDocumentType : Swift.Equatable {}
+extension GiniCaptureSDK.GiniCaptureDocumentType : Swift.Hashable {}
+extension GiniCaptureSDK.GiniCaptureDocumentType : Swift.RawRepresentable {}
+extension GiniCaptureSDK.CameraError : Swift.Equatable {}
+extension GiniCaptureSDK.CameraError : Swift.Hashable {}
+extension GiniCaptureSDK.CameraError : Swift.RawRepresentable {}
+extension GiniCaptureSDK.ReviewError : Swift.Equatable {}
+extension GiniCaptureSDK.ReviewError : Swift.Hashable {}
+extension GiniCaptureSDK.ReviewError : Swift.RawRepresentable {}
+extension GiniCaptureSDK.FilePickerError : Swift.Equatable {}
+extension GiniCaptureSDK.FilePickerError : Swift.Hashable {}
+extension GiniCaptureSDK.FilePickerError : Swift.RawRepresentable {}
+extension GiniCaptureSDK.AnalysisError : Swift.Equatable {}
+extension GiniCaptureSDK.AnalysisError : Swift.Hashable {}
+extension GiniCaptureSDK.AnalysisError : Swift.RawRepresentable {}
+extension GiniCaptureSDK.DocumentValidationError : Swift.Hashable {}
+extension GiniCaptureSDK.DocumentValidationError : Swift.RawRepresentable {}
+extension GiniCaptureSDK.DocumentPickerType : Swift.Equatable {}
+extension GiniCaptureSDK.DocumentPickerType : Swift.Hashable {}
+extension GiniCaptureSDK.DocumentPickerType : Swift.RawRepresentable {}
+extension GiniCaptureSDK.OnboardingScreenEventType : Swift.Equatable {}
+extension GiniCaptureSDK.OnboardingScreenEventType : Swift.Hashable {}
+extension GiniCaptureSDK.OnboardingScreenEventType : Swift.RawRepresentable {}
+extension GiniCaptureSDK.CameraScreenEventType : Swift.Equatable {}
+extension GiniCaptureSDK.CameraScreenEventType : Swift.Hashable {}
+extension GiniCaptureSDK.CameraScreenEventType : Swift.RawRepresentable {}
+extension GiniCaptureSDK.ReviewScreenEventType : Swift.Equatable {}
+extension GiniCaptureSDK.ReviewScreenEventType : Swift.Hashable {}
+extension GiniCaptureSDK.ReviewScreenEventType : Swift.RawRepresentable {}
+extension GiniCaptureSDK.AnalysisScreenEventType : Swift.Equatable {}
+extension GiniCaptureSDK.AnalysisScreenEventType : Swift.Hashable {}
+extension GiniCaptureSDK.AnalysisScreenEventType : Swift.RawRepresentable {}
